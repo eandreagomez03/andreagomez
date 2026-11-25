@@ -134,6 +134,20 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .case.on{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:start;animation:fadeup .7s .25s both}
 .case .txt{position:sticky;top:90px;display:grid;gap:16px}
 .case .ctx{font-size:.88rem;color:var(--muted)}
+.grades{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.grades li{display:flex;align-items:center;gap:12px;font-size:.92rem;line-height:1.3}
+.grades b{flex:0 0 56px;width:56px;box-sizing:border-box;text-align:center;font-family:var(--display);font-size:1.05rem;color:var(--cherry);background:var(--blush);border-radius:999px;padding:3px 10px}
+.ecard .ghead{margin-top:18px;font-size:.82rem;color:var(--muted)}
+.ccard.ak img{width:100%;height:auto;border-radius:10px;margin-bottom:14px;display:block}
+.track figure.vid video{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.vol{padding:80px 0}
+.vol .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.vol .vphoto{padding:0;border:0;background:none;cursor:zoom-in;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -36px rgba(163,18,46,.45)}
+.vol .vphoto img{width:100%;height:auto;display:block}
+.vol .vlogo{display:block;width:180px;height:auto;margin:14px 0 10px}
+.vol h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin:0 0 12px}
+.vol p:not(.kicker){color:#3B2D2F;max-width:46ch}
+@media (max-width:900px){.vol .wrap{grid-template-columns:1fr}.track figure.vid video{height:auto;max-height:66vh}}
 .case .clogo{display:block;width:160px;height:auto;border-radius:8px;margin:0 0 16px}
 .case h2{font-size:clamp(2.4rem,5vw,4.2rem)}
 .case h2 i{font-weight:400}
@@ -398,14 +412,14 @@ img{height:auto}
       </button>
       <button type="button" class="row card" style="--s:5;--h:520px" data-case="carmen" data-tags="strategy communication program">
         <span class="cimg "><img src="assets/img/mic.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Winner</span><span class="es">Ganadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx"><span class="en">Red Emprende, Junta de Andalucía</span><span class="es">Red Emprende, Junta de Andalucía</span></span><span class="ctitle">Carmen Conecta <i>2031</i></span><span class="cdid"><span class="en">An intergenerational network for Granada 2031. I pitched it to the jury and we won.</span><span class="es">Una red intergeneracional para Granada 2031. La presenté ante el jurado y ganamos.</span></span><span class="ctags"><span class="tag"><span class="en">Pitch</span><span class="es">Pitch</span></span><span class="tag"><span class="en">Social impact</span><span class="es">Impacto social</span></span></span></span>
+        <span class="cbody"><span class="cctx"><span class="en">Red Emprende, Junta de Andalucía</span><span class="es">Red Emprende, Junta de Andalucía</span></span><span class="ctitle">Carmen Conecta <i>2031</i></span><span class="cdid"><span class="en">An intergenerational network for Granada 2031, created with vocational training students. I pitched it to the jury and we won.</span><span class="es">Una red intergeneracional para Granada 2031, creada con estudiantes de FP. La presenté ante el jurado y ganamos.</span></span><span class="ctags"><span class="tag"><span class="en">Pitch</span><span class="es">Pitch</span></span><span class="tag"><span class="en">Social impact</span><span class="es">Impacto social</span></span></span></span>
       </button>
       <button type="button" class="row card" style="--s:5;--h:480px" data-case="gps" data-tags="builder program">
         <span class="cimg "><img src="assets/img/starthack.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">START Hack 2026, St. Gallen</span><span class="ctitle">Thesis <i>GPS</i></span><span class="cdid"><span class="en">An AI thesis navigator, built with my team at one of Europe's best-known student hackathons.</span><span class="es">Un navegador de tesis con IA, construido con mi equipo en uno de los hackathons universitarios más reconocidos de Europa.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Hackathon</span></span></span>
+        <span class="cbody"><span class="cctx">START Hack 2026, St. Gallen</span><span class="ctitle">Thesis <i>GPS</i></span><span class="cdid"><span class="en">An AI thesis navigator, built with an international team at one of Europe's best-known student hackathons.</span><span class="es">Un navegador de tesis con IA, construido con un equipo internacional en uno de los hackathons universitarios más reconocidos de Europa.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Hackathon</span></span></span>
       </button>
       <button type="button" class="row card" style="--s:7;--h:480px" data-case="arilvitas" data-tags="strategy communication">
-        <span class="cimg dark"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cimg dark"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Graded 9.9 / 10</span><span class="es">Nota: 9,9 / 10</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx"><span class="en">Interdisciplinary entrepreneurship TFG</span><span class="es">TFG emprendedor interdisciplinar</span></span><span class="ctitle">ARILVITAS</span><span class="cdid"><span class="en">“Cultura sin colapso”: a web to enjoy Granada without overwhelming it.</span><span class="es">“Cultura sin colapso”: una web para disfrutar Granada sin colapsarla.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag"><span class="en">Tourism</span><span class="es">Turismo</span></span></span></span>
       </button>
       <button type="button" class="row card" style="--s:4;--h:400px" data-case="granate" data-tags="strategy program">
@@ -414,7 +428,7 @@ img{height:auto}
       </button>
       <button type="button" class="row card" style="--s:4;--h:400px" data-case="alho" data-tags="strategy communication">
         <span class="cimg "><img src="assets/img/alho-stand.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">Treze Market, Cabo de Gata</span><span class="ctitle">ALHO</span><span class="cdid"><span class="en">Sales and engagement strategy for the stand: an Instagram roulette and a branded mirror.</span><span class="es">Estrategia de ventas y captación para la caseta: ruleta de Instagram y espejo de marca.</span></span><span class="ctags"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span></span>
+        <span class="cbody"><span class="cctx">Treze Market, Cabo de Gata</span><span class="ctitle">ALHO</span><span class="cdid"><span class="en">Sales and strategy at a seaside summer market full of tourists: an Instagram roulette and a branded mirror.</span><span class="es">Ventas y estrategia en un mercado de verano junto al mar lleno de turistas: ruleta de Instagram y espejo de marca.</span></span><span class="ctags"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span></span>
       </button>
       <button type="button" class="row card" style="--s:4;--h:400px" data-case="jardin" data-tags="builder communication">
         <span class="cimg fit"><img src="assets/img/jardin-logo.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
@@ -426,7 +440,7 @@ img{height:auto}
       </button>
       <button type="button" class="row card" style="--s:6;--h:420px" data-case="ideas" data-tags="leadership">
         <span class="cimg "><img src="assets/img/ideas-close.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">UGR Emprendedora</span><span class="ctitle"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span><span class="cdid"><span class="en">I mentored teams turning ideas into projects in a 48-hour hackathon.</span><span class="es">Acompañé a equipos que convertían ideas en proyectos en un hackathon de 48 horas.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora, 2026</span><span class="ctitle"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span><span class="cdid"><span class="en">I mentored teams on idea validation, financial planning and creativity in a 48-hour hackathon.</span><span class="es">Acompañé a equipos en validación de la idea, plan económico-financiero y creatividad en un hackathon de 48 horas.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span></span>
       </button>
       <button type="button" class="row card" style="--s:5;--h:420px" data-case="recursos" data-tags="builder">
         <span class="cimg fit"><img src="assets/img/ugr-emprendedora.png" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
@@ -434,7 +448,7 @@ img{height:auto}
       </button>
       <button type="button" class="row card" style="--s:7;--h:420px" data-case="ie" data-tags="program">
         <span class="cimg "><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"><span class="badge">90 <span class="en">of</span><span class="es">de</span> 105,000+</span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">Selected as one of 90 participants from more than 105,000 applicants.</span><span class="es">Una de las 90 personas seleccionadas entre más de 105.000 candidaturas.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span></span></span>
+        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">One of 90 selected from 105,000+. With a team from six countries we created Agus, a money app for first paychecks.</span><span class="es">Una de las 90 seleccionadas entre más de 105.000. Con un equipo de seis países creamos Agus, una app de finanzas para el primer sueldo.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span><span class="tag"><span class="en">International team</span><span class="es">Equipo internacional</span></span></span></span>
       </button>
     </div>
   </div>
@@ -467,7 +481,7 @@ img{height:auto}
         <div>
           <h3>ALHO</h3>
           <p class="pos"><span class="en">Sales and Marketing, Treze Market</span><span class="es">Ventas y Marketing, Treze Market</span></p>
-          <ul><li><span class="en">Designed the stand's sales and engagement strategies, which drew a large crowd.</span><span class="es">Diseñé las estrategias de venta y captación de la caseta, que atrajeron a mucho público.</span></li></ul>
+          <ul><li><span class="en">Sold to a largely tourist audience at a seasonal market of fashion, art, music and food in the Cabo de Gata natural park.</span><span class="es">Ventas a un público mayoritariamente turista en un mercado de temporada de moda, arte, música y gastronomía en el parque natural de Cabo de Gata.</span></li><li><span class="en">Designed the stand's sales and engagement strategies, which drew a large crowd.</span><span class="es">Diseñé las estrategias de venta y captación de la caseta, que atrajeron a mucho público.</span></li></ul>
         </div>
       </article>
       <article>
@@ -505,12 +519,24 @@ img{height:auto}
         <p class="yr"><span class="en">Sep 2021 to Jun 2026</span><span class="es">sep 2021 a jun 2026</span></p>
         <h3><span class="en">Double Degree in Law and Business Administration</span><span class="es">Doble Grado en Derecho y Administración y Dirección de Empresas</span></h3>
         <p><span class="en">University of Granada. A legal and business background with an international outlook and a focus on economic and business analysis.</span><span class="es">Universidad de Granada. Formación jurídica y empresarial, con proyección internacional y orientación al análisis económico-empresarial.</span></p>
+        <p class="ghead"><span class="en">Highlights from my transcript</span><span class="es">Lo más destacado de mi expediente</span></p>
+        <ul class="grades">
+          <li><b><span class="en">9.9</span><span class="es">9,9</span></b><span><span class="en">Final degree project (ARILVITAS)</span><span class="es">Trabajo Fin de Grado (ARILVITAS)</span></span></li>
+          <li><b>MH</b><span><span class="en">Honours (Matrícula de Honor) in Strategic Management II</span><span class="es">Matrícula de Honor en Dirección Estratégica de la Empresa II</span></span></li>
+          <li><b>MH</b><span><span class="en">Honours (Matrícula de Honor) in Fundamentals of Business Administration</span><span class="es">Matrícula de Honor en Fundamentos de Dirección y Administración de Empresas</span></span></li>
+          <li><b><span class="en">9.7</span><span class="es">9,7</span></b><span><span class="en">Strategic Management I</span><span class="es">Dirección Estratégica de la Empresa I</span></span></li>
+          <li><b><span class="en">9.6</span><span class="es">9,6</span></b><span><span class="en">General Accounting</span><span class="es">Contabilidad General</span></span></li>
+          <li><b><span class="en">9.5</span><span class="es">9,5</span></b><span><span class="en">Business Creation</span><span class="es">Creación de Empresas</span></span></li>
+        </ul>
       </article>
       <article class="ecard">
         <div class="lg"><img src="assets/img/galway-logo.png" alt="University of Galway" loading="lazy"></div>
         <p class="yr"><span class="en">Sep 2023 to May 2024</span><span class="es">sep 2023 a may 2024</span></p>
         <h3><span class="en">Erasmus Programme</span><span class="es">Programa Erasmus</span></h3>
         <p><span class="en">Law and Business Administration and Management at the University of Galway (NUIG), Ireland.</span><span class="es">Derecho y Administración y Dirección de Empresas en la University of Galway (NUIG), Irlanda.</span></p>
+        <ul class="grades">
+          <li><b>10</b><span><span class="en">Quantitative Methods</span><span class="es">Métodos Cuantitativos</span></span></li>
+        </ul>
       </article>
     </div>
   </div>
@@ -556,6 +582,12 @@ img{height:auto}
         </div>
         <p class="c2lab"><span class="en">In red: 200 or more, which Cambridge places at C2 level. Scale from 160 to 210.</span><span class="es">En rojo: 200 o más, que Cambridge sitúa en nivel C2. Escala de 160 a 210.</span></p>
       </article>
+      <article class="ccard ak">
+        <img src="assets/img/akademia.jpg" alt="Akademia Future Builders, Fundación Innovación Bankinter" width="800" height="515" loading="lazy">
+        <span class="iss">Fundación Innovación Bankinter, 2026</span>
+        <h3>Akademia Future Builders</h3>
+        <span style="font-size:.9rem;color:var(--muted)"><span class="en">Selected after an application and a personal interview for this fully funded programme on the changes reshaping society, from AI to energy and synthetic biology, with live sessions led by experts and innovative companies.</span><span class="es">Seleccionada tras candidatura y entrevista personal para este programa becado sobre las transformaciones que están cambiando la sociedad, de la IA a la energía o la biología sintética, con sesiones en directo con expertos y empresas innovadoras.</span></span>
+      </article>
       <button type="button" class="ccard" data-lb="assets/img/cert-claude.jpg">
         <span class="iss">Anthropic Academy, <span class="en">Mar 2026</span><span class="es">mar 2026</span></span>
         <h3>Claude Code in Action</h3>
@@ -579,7 +611,7 @@ img{height:auto}
       </button>
       <div class="facts">
         <div><h4><span class="en">Languages</span><span class="es">Idiomas</span></h4><p><span class="en">Spanish, native. English, C1 with C2-level speaking. French, A2.</span><span class="es">Español, nativo. Inglés, C1 con speaking de nivel C2. Francés, A2.</span></p></div>
-        <div><h4><span class="en">Tools and more</span><span class="es">Herramientas y más</span></h4><p><span class="en">Generative AI and prompting, Lovable, Figma, Canva, Microsoft Office. Volunteer at the Spanish Red Cross, Socio-Health Emergency Service.</span><span class="es">IA generativa y prompting, Lovable, Figma, Canva, Microsoft Office. Voluntaria en Cruz Roja Española, Servicio de Emergencias Sociosanitarias.</span></p></div>
+        <div><h4><span class="en">Tools and more</span><span class="es">Herramientas y más</span></h4><p><span class="en">Generative AI and prompting, Lovable, Figma, Canva, Microsoft Office.</span><span class="es">IA generativa y prompting, Lovable, Figma, Canva, Microsoft Office.</span></p></div>
       </div>
     </div>
   </div>
@@ -596,6 +628,19 @@ img{height:auto}
       <p style="font-size:.85rem;color:var(--muted);margin-top:10px"><span class="en">The other gymnasts' names are hidden.</span><span class="es">Los nombres de las demás gimnastas están tapados.</span></p>
     </div>
     <button type="button" class="gym" data-lb="assets/img/gym.jpg" aria-label="Open photo"><img src="assets/img/gym.jpg" alt="Andrea competing on the uneven bars" loading="lazy"></button>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section class="vol">
+  <div class="wrap">
+    <button type="button" class="vphoto" data-lb="assets/img/cruzroja.jpg" aria-label="Open photo"><img src="assets/img/cruzroja.jpg" alt="Andrea with her Red Cross volunteer team" width="1066" height="445" loading="lazy"></button>
+    <div class="vtxt">
+      <p class="kicker"><span class="en">Volunteering</span><span class="es">Voluntariado</span></p>
+      <img class="vlogo" src="assets/img/cruzroja-logo.png" alt="Cruz Roja Española" width="260" height="62" loading="lazy">
+      <h3><span class="en">Social Emergency Unit (UES)</span><span class="es">Unidad de Emergencia Social (UES)</span></h3>
+      <p><span class="en">Night shifts in the Red Cross mobile unit that goes out across the city to find people experiencing homelessness and give them direct, immediate support: someone to talk to, the basics they need and a link to social services.</span><span class="es">Turnos de noche en la unidad móvil de Cruz Roja que recorre la ciudad para localizar a personas sin hogar y darles atención directa e inmediata: alguien con quien hablar, lo básico que necesitan y el contacto con los recursos sociales.</span></p>
+    </div>
   </div>
 </section>
 
@@ -670,6 +715,7 @@ img{height:auto}
         <p><span class="en">An intergenerational network so that Granada leaves no one behind on its way to the European Capital of Culture 2031 bid.</span><span class="es">Una red intergeneracional para que Granada no deje a nadie atrás en su camino a la candidatura de Capital Europea de la Cultura 2031.</span></p>
         <p><span class="en">Older people ask for help by WhatsApp, by phone or through a large-button interface, and Carmen matches them with a verified, trained young person from their neighbourhood.</span><span class="es">Las personas mayores piden ayuda por WhatsApp, por teléfono o con una interfaz de botones grandes, y Carmen las conecta con un joven verificado y formado de su barrio.</span></p>
         <p><span class="en">Young people earn Carmen Points for cinema, theatre, transport and training, plus verifiable certificates for their CV. Institutions get a panel with impact data.</span><span class="es">Los jóvenes ganan puntos Carmen para cine, teatro, transporte y formación, además de certificados verificables para su CV. Las instituciones tienen un panel con datos de impacto.</span></p>
+        <p><span class="en">A collaboration with vocational training (FP) students, as part of Granada's bid for European Capital of Culture.</span><span class="es">Una colaboración con estudiantes de FP, dentro de la candidatura de Granada a Capital Europea de la Cultura.</span></p>
       </div>
       <p class="role"><span class="en">I pitched the project to the jury.</span><span class="es">Presenté el proyecto ante el jurado.</span></p>
       <div class="links"><a class="btn small solid" href="https://carmengranada.lovable.app/" target="_blank" rel="noopener"><span class="en">Visit the web</span><span class="es">Ver la web</span></a></div>
@@ -690,7 +736,8 @@ img{height:auto}
     <div class="txt">
       <p class="ctx"><span class="en">Interdisciplinary entrepreneurship TFG (final degree project)</span><span class="es">TFG emprendedor interdisciplinar</span></p>
       <h2>ARILVITAS</h2>
-      <p class="hl"><span class="en">“Cultura sin colapso”: culture without the crush</span><span class="es">“Cultura sin colapso”</span></p>
+      <p class="hl"><span class="en">Final grade: 9.9 out of 10</span><span class="es">Nota final: 9,9 sobre 10</span></p>
+      <p style="font-family:var(--display);font-size:1.35rem;line-height:1.2"><span class="en">“Cultura sin colapso”: culture without the crush</span><span class="es">“Cultura sin colapso”</span></p>
       <div class="desc">
         <p><span class="en">A web to discover Granada without overwhelming it. ARILVITAS spreads the flow of visitors across cultural alternatives, smart routes and unique experiences.</span><span class="es">Una web para descubrir Granada sin colapsarla. ARILVITAS reparte el flujo turístico entre alternativas culturales, rutas inteligentes y experiencias únicas.</span></p>
         <p><span class="en">An interdisciplinary final degree project, made together with an Audiovisual Communication student.</span><span class="es">Un TFG interdisciplinar, hecho junto a un estudiante de Comunicación Audiovisual.</span></p>
@@ -714,6 +761,7 @@ img{height:auto}
         <p><span class="en">An AI-powered thesis navigator. Our pitch started from 100,000 theses a year in Switzerland with no clear map, and Thesis GPS shows every phase on one page plus the single best move right now.</span><span class="es">Un navegador de tesis con IA. Nuestro pitch partía de 100.000 tesis al año en Suiza sin un mapa claro, y Thesis GPS muestra todas las fases en una página y el mejor paso que dar ahora.</span></p>
         <p><span class="en">An 8-stage journey map, a workspace for each stage (supervisor matcher, planner, checklist), AI next-step cards and a "Stuck" dialog to get unblocked.</span><span class="es">Un mapa de 8 etapas, un espacio de trabajo para cada una (buscador de tutor, planificador, checklist), tarjetas de siguiente paso con IA y un diálogo de "atasco" para desbloquearse.</span></p>
       </div>
+      <p class="role"><span class="en">Built in an international team with members from Spain, Peru and Singapore.</span><span class="es">Hecho en un equipo internacional con miembros de España, Perú y Singapur.</span></p>
       <div class="links"><a class="btn small solid" href="https://starthackthesisgpsstudyond.vercel.app" target="_blank" rel="noopener"><span class="en">Try the live demo</span><span class="es">Probar la demo</span></a></div>
     </div>
     <div class="gal" data-gal>
@@ -795,7 +843,7 @@ img{height:auto}
       <p class="ctx">Treze Market, Rodalquilar (Cabo de Gata), <span class="en">Aug 2026</span><span class="es">ago 2026</span></p>
       <h2>ALHO <i><span class="en">at</span><span class="es">en</span> Treze Market</i></h2>
       <div class="desc">
-        <p><span class="en">Sales and marketing for ALHO, a Mediterranean menswear brand, at a summer market of fashion, art, music and food by the sea.</span><span class="es">Ventas y marketing para ALHO, una marca de moda masculina mediterránea, en un mercado de verano de moda, arte, música y gastronomía junto al mar.</span></p>
+        <p><span class="en">Sales and marketing for ALHO, a Mediterranean menswear brand, at Treze Market: a seasonal market in Rodalquilar, in the Cabo de Gata natural park, that brings fashion, art, music and food together at sunset, a short walk from the sea. Most of the people I sold to were tourists.</span><span class="es">Ventas y marketing para ALHO, una marca de moda masculina mediterránea, en Treze Market: un mercado de temporada en Rodalquilar, en el parque natural de Cabo de Gata, que reúne moda, arte, música y gastronomía al atardecer, a un paso del mar. La mayoría del público al que vendía eran turistas.</span></p>
         <p><span class="en">I designed two in-store strategies: a follow-and-spin roulette on an iPad to grow the brand's Instagram audience, and a branded message on the mirror: <q>Mírate. ¡ALHO bueno está por pasar!</q></span><span class="es">Diseñé dos estrategias en la caseta: una ruleta en iPad (seguir en Instagram para girar) para captar seguidores para la marca, y un mensaje de marca en el espejo: <q>Mírate. ¡ALHO bueno está por pasar!</q></span></p>
       </div>
       <p class="role"><span class="en">Result: the stand drew a large crowd.</span><span class="es">Resultado: la caseta atrajo a mucho público.</span></p>
@@ -830,13 +878,13 @@ img{height:auto}
 
   <article class="case" id="ideas">
     <div class="txt">
-      <p class="ctx">UGR Emprendedora</p>
+      <p class="ctx">UGR Emprendedora, 2026</p>
       <h2><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></h2>
       <p class="hl"><span class="n" data-count="48">48</span> <span class="en">hours from idea to project</span><span class="es">horas de la idea al proyecto</span></p>
       <div class="desc">
         <p><span class="en">Ideas Factory is UGR's idea hackathon: multidisciplinary teams turn an idea into a real project in 48 hours, guided by a network of mentors.</span><span class="es">Ideas Factory es el hackathon de ideas de la UGR: equipos multidisciplinares convierten una idea en un proyecto real en 48 horas, acompañados por una red de mentores.</span></p>
       </div>
-      <p class="role"><span class="en">I was one of the mentors guiding the teams.</span><span class="es">Fui una de las mentoras que acompañaron a los equipos.</span></p>
+      <p class="role"><span class="en">As a mentor, I helped teams validate their idea, build their financial plan and push their creativity.</span><span class="es">Como mentora, ayudé a los equipos a validar su idea, construir su plan económico-financiero y potenciar su creatividad.</span></p>
     </div>
     <div class="gal" data-gal>
       <div class="track">
@@ -854,12 +902,15 @@ img{height:auto}
       <p class="hl"><span class="n" data-count="90">90</span> <span class="en">selected from 105,000+ applicants</span><span class="es">personas seleccionadas entre más de 105.000 candidaturas</span></p>
       <div class="desc">
         <p><span class="en">An international program on artificial intelligence, innovation and leadership, in a demanding bilingual setting.</span><span class="es">Un programa internacional de inteligencia artificial, innovación y liderazgo, en un entorno bilingüe de alta exigencia.</span></p>
+        <p><span class="en">In a multidisciplinary team with members from Argentina, Germany, Chile, Mexico, Brazil and Spain, we created <b>Agus</b>: an app that talks your language about money. From the first paycheck to smart habits, it turns everyday spending into personal, practical guidance, with a savings goal, a monthly budget and tips such as moving what you saved this week straight to your goal.</span><span class="es">En un equipo multidisciplinar con miembros de Argentina, Alemania, Chile, México, Brasil y España, creamos <b>Agus</b>: una app que te habla de dinero en tu idioma. Del primer sueldo a los buenos hábitos, convierte el gasto diario en consejos personales y prácticos, con una meta de ahorro, un presupuesto mensual y avisos como sumar a tu meta lo que has ahorrado esta semana.</span></p>
       </div>
     </div>
     <div class="gal" data-gal>
       <div class="track">
         <figure class="cover"><img src="assets/img/ie-stage.jpg" alt="All participants on stage at IE University" loading="lazy"><button type="button" aria-label="Enlarge"></button></figure>
         <figure class="cover"><img src="assets/img/ie-team.jpg" alt="Andrea with her team" loading="lazy"><button type="button" aria-label="Enlarge"></button></figure>
+        <figure style="background:#fff"><img src="assets/img/agus-cover.jpg" alt="Agus: from first money to smart money habits" loading="lazy"><button type="button" aria-label="Enlarge"></button></figure>
+        <figure class="vid" style="background:#fff"><video src="assets/img/agus-demo.mp4" poster="assets/img/agus-poster.jpg" muted loop playsinline preload="none" aria-label="Agus app demo"></video></figure>
       </div>
       <div class="gctl"><div class="dots"></div><div class="arrows"><button type="button" class="ic gp" aria-label="Previous photo">←</button><button type="button" class="ic gn" aria-label="Next photo">→</button></div></div>
     </div>
@@ -964,7 +1015,10 @@ img{height:auto}
     track.addEventListener('pointerdown', function(e){ if(e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; track.classList.add('drag'); });
     window.addEventListener('pointermove', function(e){ if(!down) return; var dx = e.clientX - sx; if(Math.abs(dx) > 4) moved = true; track.scrollLeft = sl - dx; });
     window.addEventListener('pointerup', function(){ if(!down) return; down = false; track.classList.remove('drag'); go(idx()); });
-    figs.forEach(function(f, i){ var b = $('button', f); b.addEventListener('click', function(e){ if(moved){ e.preventDefault(); return; } openLb(figs.map(function(x){ return $('img', x).getAttribute('src'); }), i, figs.map(function(x){ return $('img', x).alt; })); }); });
+    var imf = figs.filter(function(x){ return $('img', x); });
+    figs.forEach(function(f){ var b = $('button', f); if(!b) return; b.addEventListener('click', function(e){ if(moved){ e.preventDefault(); return; } openLb(imf.map(function(x){ return $('img', x).getAttribute('src'); }), imf.indexOf(f), imf.map(function(x){ return $('img', x).alt; })); }); });
+    var vids = $$('video', track);
+    if(vids.length){ var vUpd = function(){ var i = idx(); figs.forEach(function(f, j){ var v = $('video', f); if(!v) return; if(i === j){ v.play().catch(function(){}); } else { v.pause(); } }); }; track.addEventListener('scroll', function(){ clearTimeout(track._vt); track._vt = setTimeout(vUpd, 120); }, {passive:true}); }
     g._go = go;
   }
   $$('[data-gal]').forEach(initGal);
@@ -985,6 +1039,7 @@ img{height:auto}
     setTimeout(function(){ $('#cclose').focus(); }, 50);
   }
   function closeCase(fromNav){
+    $$('video', cases).forEach(function(v){ v.pause(); });
     cases.classList.remove('on'); document.body.classList.remove('lock');
     if(fromNav !== true){ try { if(history.state && history.state.agl) history.back(); else history.replaceState(null, '', '#work'); } catch(e){} }
     if(lastRow) lastRow.focus();
