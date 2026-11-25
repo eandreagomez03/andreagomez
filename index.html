@@ -14,6 +14,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2232%22 fill=%22%23A3122E%22/%3E%3Ctext x=%2232%22 y=%2244%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-size=%2236%22 text-anchor=%22middle%22 fill=%22%23FBF3F2%22%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/img/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Figtree:wght@400;500;600&family=DotGothic16&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -67,7 +68,7 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--paper)}
 .lang button{border:0;background:transparent;padding:4px 11px;border-radius:999px;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--porcelain)}
-@media (max-width:820px){.top nav{display:none}}
+@media (max-width:820px){.top .wrap > nav{display:none}}
 
 /* hero */
 .hero{padding:48px 0 90px}
@@ -91,7 +92,6 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .btn.small{padding:8px 15px;font-size:.88rem}
 .portrait{position:relative;aspect-ratio:4/5;border-radius:999px 999px 26px 26px;overflow:hidden;background:var(--blush);box-shadow:0 40px 70px -40px rgba(163,18,46,.45);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1);animation:fadeup 1s .2s both}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:70% 18%;transform:scale(1.06);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.portrait figcaption{position:absolute;left:18px;bottom:16px;background:var(--paper);border-radius:999px;padding:6px 14px;font-size:.8rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.portrait{max-width:380px;width:100%;margin:0 auto}}
 
 /* work grid */
@@ -220,13 +220,6 @@ header.top.scrolled{border-bottom-color:var(--line)}
 /* gymnastics */
 .beyond{background:var(--blush)}
 .beyond .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.board{background:#140709;border-radius:18px;padding:26px 24px;font-family:var(--led);color:#F6C5CF;box-shadow:inset 0 0 0 6px #22100f,0 30px 50px -30px rgba(0,0,0,.6)}
-.board .hd{color:#FF8FA6;font-size:1.05rem;margin-bottom:14px;letter-spacing:.05em}
-.board .ln{display:grid;grid-template-columns:34px 1fr auto;gap:12px;font-size:1.15rem;padding:5px 0;opacity:.32;transition:opacity .4s}
-.board .ln.me{opacity:1;color:#fff;text-shadow:0 0 8px rgba(255,120,150,.9)}
-.board-ready .ln{opacity:0}
-.board-ready .ln.on{opacity:.32}
-.board-ready .ln.me.on{opacity:1}
 .gym.score{transform:rotate(1deg);width:100%}
 .gym{border-radius:var(--r);overflow:hidden;transform:rotate(-1.5deg);box-shadow:0 30px 50px -30px rgba(40,10,15,.45);cursor:zoom-in;border:0;padding:0;background:none;display:block}
 @media (max-width:900px){.beyond .wrap{grid-template-columns:1fr}}
@@ -322,6 +315,13 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
 @media (max-width:640px){.reels{grid-template-columns:1fr}}
 .exp .when .eye{background:#fff;padding:6px;border-radius:8px;height:auto;width:150px}
 .facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.menu-btn{display:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;font-size:.85rem;cursor:pointer;margin-left:auto}
+.top .mnav{display:grid;gap:0;font-size:1rem;padding:6px 24px 16px;border-top:1px solid var(--line);background:var(--porcelain)}
+.top .mnav[hidden]{display:none}
+.top .mnav a{color:var(--ink);font-family:var(--display);font-size:1.6rem;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line)}
+@media (max-width:820px){.menu-btn{display:inline-flex}.top .wrap{gap:10px}}
+@media (min-width:821px){.mnav{display:none!important}}
+img{height:auto}
 </style>
 </head>
 <body>
@@ -336,11 +336,15 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       <a href="#credentials"><span class="en">Credentials</span><span class="es">Credenciales</span></a>
       <a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
     </nav>
+    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav"><span class="en">Menu</span><span class="es">Menú</span></button>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
     </div>
   </div>
+  <nav class="mnav" id="mnav" aria-label="Sections" hidden>
+    <a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a><a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a><a href="#education"><span class="en">Education</span><span class="es">Formación</span></a><a href="#credentials"><span class="en">Credentials</span><span class="es">Credenciales</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
+  </nav>
 </header>
 
 <main id="home">
@@ -429,7 +433,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       </button>
       <button type="button" class="row card" style="--s:7;--h:420px" data-case="ie" data-tags="program">
         <span class="cimg "><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"><span class="badge">90 <span class="en">of</span><span class="es">de</span> 105,000+</span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">Selected as one of 90 participants from more than 105,000 applicants.</span><span class="es">Seleccionada entre 90 participantes de más de 105.000 candidaturas.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span></span></span>
+        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">Selected as one of 90 participants from more than 105,000 applicants.</span><span class="es">Una de las 90 personas seleccionadas entre más de 105.000 candidaturas.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span></span></span>
       </button>
     </div>
   </div>
@@ -845,7 +849,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     <div class="txt">
       <p class="ctx">IE University x Banco Santander, <span class="en">13 to 26 Jul 2026</span><span class="es">13 a 26 jul 2026</span></p>
       <h2>Innovation &amp; <i>AI Experience</i></h2>
-      <p class="hl"><span class="n" data-count="90">90</span> <span class="en">selected from 105,000+ applicants</span><span class="es">seleccionadas entre más de 105.000 candidaturas</span></p>
+      <p class="hl"><span class="n" data-count="90">90</span> <span class="en">selected from 105,000+ applicants</span><span class="es">personas seleccionadas entre más de 105.000 candidaturas</span></p>
       <div class="desc">
         <p><span class="en">An international program on artificial intelligence, innovation and leadership, in a demanding bilingual setting.</span><span class="es">Un programa internacional de inteligencia artificial, innovación y liderazgo, en un entorno bilingüe de alta exigencia.</span></p>
       </div>
@@ -905,6 +909,12 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
 
   var top = $('#top');
   window.addEventListener('scroll', function(){ top.classList.toggle('scrolled', window.scrollY > 10); }, {passive:true});
+
+
+  /* mobile menu */
+  var mb = $('#menuBtn'), mn = $('#mnav');
+  mb.addEventListener('click', function(){ var open = mn.hidden; mn.hidden = !open; mb.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  $$('a', mn).forEach(function(a){ a.addEventListener('click', function(){ mn.hidden = true; mb.setAttribute('aria-expanded', 'false'); }); });
 
   /* portrait tilt */
   var pt = $('#portrait'), fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -969,23 +979,23 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     var c = $('#' + id);
     $$('.n[data-count]', c).forEach(countUp);
     var g = $('[data-gal]', c); if(g && g._go) setTimeout(function(){ var t = $('.track', g); t.scrollLeft = 0; t.dispatchEvent(new Event('scroll')); }, 30);
-    if(push !== false){ try { history.replaceState(null, '', '#' + id); } catch(e){} }
+    if(push !== false){ try { if(history.state && history.state.agl) history.replaceState({agl:1}, '', '#' + id); else history.pushState({agl:1}, '', '#' + id); } catch(e){} }
     setTimeout(function(){ $('#cclose').focus(); }, 50);
   }
-  function closeCase(){
+  function closeCase(fromNav){
     cases.classList.remove('on'); document.body.classList.remove('lock');
-    try { history.replaceState(null, '', '#work'); } catch(e){}
+    if(fromNav !== true){ try { if(history.state && history.state.agl) history.back(); else history.replaceState(null, '', '#work'); } catch(e){} }
     if(lastRow) lastRow.focus();
   }
   function origin(e){ var x = e && e.clientX ? e.clientX : window.innerWidth / 2, y = e && e.clientY ? e.clientY : window.innerHeight / 2; cases.style.setProperty('--cx', x + 'px'); cases.style.setProperty('--cy', y + 'px'); }
   $$('.row').forEach(function(r){ r.addEventListener('click', function(e){ lastRow = r; origin(e); showCase(r.dataset.case); }); });
-  $$('[data-open]').forEach(function(b){ b.addEventListener('click', function(e){ lastRow = b; origin(e); showCase(b.dataset.open); }); });
-  $('#cclose').addEventListener('click', closeCase);
+
+  $('#cclose').addEventListener('click', function(){ closeCase(); });
   function step(d){ var vo = visibleOrder(); if(!vo.length) vo = order; var i = (vo.indexOf(order[cur]) + d + vo.length) % vo.length; showCase(vo[(Math.max(0, cur) + d + vo.length) % vo.length]); }
   $('#cprev').addEventListener('click', function(){ step(-1); });
   $('#cnext').addEventListener('click', function(){ step(1); });
-  function fromHash(){ var h = location.hash.replace('#', ''); if(order.indexOf(h) > -1) showCase(h, false); else if(cases.classList.contains('on')) closeCase(); }
-  window.addEventListener('hashchange', fromHash); fromHash();
+  function fromHash(){ var h = location.hash.replace('#', ''); if(order.indexOf(h) > -1) showCase(h, false); else if(cases.classList.contains('on')) closeCase(true); }
+  window.addEventListener('popstate', fromHash); window.addEventListener('hashchange', fromHash); fromHash();
 
   /* experience rail */
   var exp = $('#exp'), rail = $('.rail i', exp);
