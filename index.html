@@ -8,6 +8,12 @@
 <meta property="og:title" content="Andrea Gómez Lozano">
 <meta property="og:description" content="I turn messy ideas into clear plans, products and stories.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://eandreagomez03.github.io/andreagomez/">
+<meta property="og:image" content="https://eandreagomez03.github.io/andreagomez/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2232%22 fill=%22%23A3122E%22/%3E%3Ctext x=%2232%22 y=%2244%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-size=%2236%22 text-anchor=%22middle%22 fill=%22%23FBF3F2%22%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Figtree:wght@400;500;600&family=DotGothic16&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -285,6 +291,37 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
 .docpage h4{font-family:inherit;font-size:1.15rem;color:#1d4f6e;margin:6px 0 14px;text-align:left}
 .docpage .ds{text-align:left;margin-top:18px}
 .docpage .dn{font-size:.8rem;color:#777;text-align:left;margin-top:18px}
+
+/* cameo portrait */
+.portrait-wrap{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;margin-left:auto}
+.portrait-wrap::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--blush);transform:translate(22px,20px)}
+.portrait{position:absolute!important;inset:0;aspect-ratio:auto;border-radius:50%!important;border:0!important;outline:0!important;box-shadow:0 40px 70px -40px rgba(163,18,46,.5)}
+.pearl-ring{position:absolute;inset:-18px;width:calc(100% + 36px);height:calc(100% + 36px);z-index:2;pointer-events:none;filter:drop-shadow(0 1px 1px rgba(150,40,70,.45))}
+.sig{left:-20px;bottom:8%}
+@media (max-width:900px){.portrait-wrap{margin:30px auto 0;max-width:340px}}
+/* next stop card */
+.next{display:grid;gap:10px;border-radius:18px;padding:14px 18px}
+.nx1,.nx2{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.flag{width:34px;height:18px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.next .eye{height:30px;width:auto;border-radius:0}
+/* education */
+.edu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ecard{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:14px;align-content:start;transition:transform .3s,box-shadow .3s}
+.ecard:hover{transform:translateY(-4px);box-shadow:0 30px 50px -36px rgba(80,0,20,.45)}
+.ecard .lg{height:96px;display:flex;align-items:center}
+.ecard .lg img{max-height:96px;width:auto}
+.ecard .yr{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.ecard h3{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.ecard p{color:#3B2D2F}
+@media (max-width:820px){.edu{grid-template-columns:1fr}}
+/* reels */
+.reels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px;max-width:720px}
+.reel{border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.reel iframe{width:100%;height:600px;border:0;display:block}
+.reel a{display:block;padding:10px 14px;font-size:.88rem}
+@media (max-width:640px){.reels{grid-template-columns:1fr}}
+.exp .when .eye{background:#fff;padding:6px;border-radius:8px;height:auto;width:150px}
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 </style>
 </head>
 <body>
@@ -295,6 +332,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     <nav aria-label="Sections">
       <a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a>
       <a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a>
+      <a href="#education"><span class="en">Education</span><span class="es">Formación</span></a>
       <a href="#credentials"><span class="en">Credentials</span><span class="es">Credenciales</span></a>
       <a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
     </nav>
@@ -312,11 +350,10 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     <div>
       <h1 class="hero-name"><span class="w"><span>Andrea</span></span><span class="w"><span>Gómez Lozano</span></span></h1>
       <p class="hero-line"><span class="en">I turn messy ideas into clear plans, products and stories.</span><span class="es">Convierto ideas desordenadas en planes, productos e historias claras.</span></p>
-      <p class="hero-sub"><span class="en">Law and Business graduate working where entrepreneurship, AI and people meet. I build most of my projects myself.</span><span class="es">Graduada en Derecho y ADE. Trabajo donde se cruzan el emprendimiento, la IA y las personas, y casi todos mis proyectos los construyo yo misma.</span></p>
+      <p class="hero-sub"><span class="en">Law and Business graduate working where entrepreneurship, AI and people meet.</span><span class="es">Graduada en Derecho y ADE. Trabajo donde se cruzan el emprendimiento, la IA y las personas.</span></p>
       <div class="next">
-        <span><span class="en">Next stop: New York with</span><span class="es">Próxima parada: Nueva York con</span></span>
-        <img src="assets/img/rebelbase.png" alt="RebelBase" width="132" height="26">
-        <span class="d"><span class="en">Dec 2026 to Mar 2027</span><span class="es">dic 2026 a mar 2027</span></span>
+        <div class="nx1"><svg class="flag" viewBox="0 0 38 20" aria-label="United States" role="img"><rect width="38" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="38" height="1.54"/><rect y="4.62" width="38" height="1.54"/><rect y="7.69" width="38" height="1.54"/><rect y="10.77" width="38" height="1.54"/><rect y="13.85" width="38" height="1.54"/><rect y="16.92" width="38" height="1.54"/></g><rect width="15.2" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.5" cy="2" r=".7"/><circle cx="5.5" cy="2" r=".7"/><circle cx="8.5" cy="2" r=".7"/><circle cx="11.5" cy="2" r=".7"/><circle cx="4" cy="4.2" r=".7"/><circle cx="7" cy="4.2" r=".7"/><circle cx="10" cy="4.2" r=".7"/><circle cx="13" cy="4.2" r=".7"/><circle cx="2.5" cy="6.4" r=".7"/><circle cx="5.5" cy="6.4" r=".7"/><circle cx="8.5" cy="6.4" r=".7"/><circle cx="11.5" cy="6.4" r=".7"/><circle cx="4" cy="8.6" r=".7"/><circle cx="7" cy="8.6" r=".7"/><circle cx="10" cy="8.6" r=".7"/><circle cx="13" cy="8.6" r=".7"/></g></svg><span><b><span class="en">Next stop: New York</span><span class="es">Próxima parada: Nueva York</span></b> <span class="d"><span class="en">Dec 2026 to Mar 2027</span><span class="es">dic 2026 a mar 2027</span></span></span></div>
+        <div class="nx2"><img src="assets/img/rebelbase.png" alt="RebelBase" width="122" height="24"><span class="d"><span class="en">through</span><span class="es">con el programa</span></span><img src="assets/img/eye-logo.png" alt="Erasmus for Young Entrepreneurs" width="150" height="37" class="eye"></div>
       </div>
       <div class="cta">
         <a class="btn solid" href="#work"><span class="en">See my work</span><span class="es">Ver proyectos</span></a>
@@ -324,7 +361,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
         <a class="btn ghost" href="assets/docs/Andrea-Gomez-Lozano-CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
-    <div class="portrait-wrap"><figure class="portrait" id="portrait" style="margin:0">
+    <div class="portrait-wrap"><svg class="pearl-ring" viewBox="0 0 440 550" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="220" cy="275" rx="212" ry="267" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 17"/></svg><figure class="portrait" id="portrait" style="margin:0">
       <img src="assets/img/hero.jpg" alt="Andrea Gómez Lozano at UGR Emprendedora" width="920" height="1035">
       </figure><span class="sig" aria-hidden="true">Andrea</span></div>
   </div>
@@ -408,10 +445,11 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     <div class="exp" id="exp">
       <div class="rail" aria-hidden="true"><i></i></div>
       <article>
-        <div class="when"><span class="en">Dec 2026 to Mar 2027</span><span class="es">dic 2026 a mar 2027</span><br>New York<img src="assets/img/rebelbase.png" alt="RebelBase" width="152" height="30"></div>
+        <div class="when"><span class="en">Dec 2026 to Mar 2027</span><span class="es">dic 2026 a mar 2027</span><br><span style="display:inline-flex;align-items:center;gap:8px"><svg class="flag" viewBox="0 0 38 20" aria-label="United States" role="img"><rect width="38" height="20" fill="#B22234"/><g fill="#fff"><rect y="1.54" width="38" height="1.54"/><rect y="4.62" width="38" height="1.54"/><rect y="7.69" width="38" height="1.54"/><rect y="10.77" width="38" height="1.54"/><rect y="13.85" width="38" height="1.54"/><rect y="16.92" width="38" height="1.54"/></g><rect width="15.2" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.5" cy="2" r=".7"/><circle cx="5.5" cy="2" r=".7"/><circle cx="8.5" cy="2" r=".7"/><circle cx="11.5" cy="2" r=".7"/><circle cx="4" cy="4.2" r=".7"/><circle cx="7" cy="4.2" r=".7"/><circle cx="10" cy="4.2" r=".7"/><circle cx="13" cy="4.2" r=".7"/><circle cx="2.5" cy="6.4" r=".7"/><circle cx="5.5" cy="6.4" r=".7"/><circle cx="8.5" cy="6.4" r=".7"/><circle cx="11.5" cy="6.4" r=".7"/><circle cx="4" cy="8.6" r=".7"/><circle cx="7" cy="8.6" r=".7"/><circle cx="10" cy="8.6" r=".7"/><circle cx="13" cy="8.6" r=".7"/></g></svg> <span class="en">New York</span><span class="es">Nueva York</span></span><img src="assets/img/rebelbase.png" alt="RebelBase" width="152" height="30"><img src="assets/img/eye-logo.png" alt="Erasmus for Young Entrepreneurs" class="eye"></div>
         <div>
           <h3>RebelBase</h3>
-          <p class="pos"><span class="en">New Entrepreneur in Innovation and Product, Erasmus for Young Entrepreneurs</span><span class="es">Nueva Emprendedora en Innovación y Producto, Erasmus para Jóvenes Emprendedores</span></p>
+          <p class="pos"><span class="en">New Entrepreneur in Innovation and Product</span><span class="es">Nueva Emprendedora en Innovación y Producto</span></p>
+          <p style="margin-bottom:14px;color:#3B2D2F;max-width:70ch"><span class="en">Through <b>Erasmus for Young Entrepreneurs</b>, the European Commission's exchange programme that places new entrepreneurs with experienced entrepreneurs abroad.</span><span class="es">Con <b>Erasmus para Jóvenes Emprendedores</b>, el programa de intercambio de la Comisión Europea que lleva a nuevos emprendedores a trabajar con emprendedores experimentados de otro país.</span></p>
           <ul>
             <li><span class="en">User research and product testing for RebelBase 1.5 and 2.0, within the Democratizing Innovation projects.</span><span class="es">Investigación de usuarios y pruebas de producto de RebelBase 1.5 y 2.0, dentro de los proyectos de Democratizing Innovation.</span></li>
             <li><span class="en">Sourcing international partners, customers and funding.</span><span class="es">Búsqueda de socios, clientes y financiación internacional.</span></li>
@@ -434,12 +472,40 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
           <p class="pos"><span class="en">Trainee in Entrepreneurship and Innovation Management, University of Granada</span><span class="es">Trainee en Gestión de Emprendimiento e Innovación, Universidad de Granada</span></p>
           <ul>
             <li><span class="en">Built a resource bank web app for founders, on my own, with Lovable.</span><span class="es">Construí por mi cuenta, con Lovable, una app web con un banco de recursos para emprender.</span></li>
-            <li><span class="en">Ran social media in the brand's voice: 10,000+ organic views and 14+ hours watched, with no ad spend.</span><span class="es">Llevé las redes con la voz de la marca: más de 10.000 visualizaciones orgánicas y más de 14 horas de reproducción, sin inversión publicitaria.</span> <a href="https://www.instagram.com/reel/DU_EH1VjAkH/" target="_blank" rel="noopener"><span class="en">Watch a reel</span><span class="es">Ver un reel</span></a></li>
+            <li><span class="en">Ran social media in the brand's voice: 10,000+ organic views and 14+ hours watched, with no ad spend.</span><span class="es">Llevé las redes con la voz de la marca: más de 10.000 visualizaciones orgánicas y más de 14 horas de reproducción, sin inversión publicitaria.</span></li>
             <li><span class="en">Interviewed UGR founders, wrote their articles and covered the events on video.</span><span class="es">Entrevisté a emprendedores de la UGR, redacté sus artículos y cubrí los encuentros en vídeo.</span></li>
             <li><span class="en">Advised early-stage startups, analysed business plans, and worked on data and impact for the 10th anniversary campaign.</span><span class="es">Asesoré a startups incipientes, analicé planes de negocio y trabajé en el análisis de datos e impacto de la campaña del X Aniversario.</span></li>
             <li><span class="en">Ran networking events and workshops, including La Píldora Roja, the women entrepreneurs bootcamp and Red Emprende.</span><span class="es">Dinamicé eventos y talleres, entre ellos La Píldora Roja, el Bootcamp para Emprendedoras y Red Emprende.</span></li>
           </ul>
+          <div class="reels">
+            <div class="reel"><iframe src="https://www.instagram.com/reel/DU_EH1VjAkH/embed" loading="lazy" title="UGR Emprendedora reel 1" allowtransparency="true"></iframe><a href="https://www.instagram.com/reel/DU_EH1VjAkH/" target="_blank" rel="noopener"><span class="en">Open in Instagram</span><span class="es">Abrir en Instagram</span></a></div>
+            <div class="reel"><iframe src="https://www.instagram.com/reel/DXMS7c1jGEq/embed" loading="lazy" title="UGR Emprendedora reel 2" allowtransparency="true"></iframe><a href="https://www.instagram.com/reel/DXMS7c1jGEq/" target="_blank" rel="noopener"><span class="en">Open in Instagram</span><span class="es">Abrir en Instagram</span></a></div>
+          </div>
         </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="en">Education</span><span class="es">Formación</span></p><span class="pearls" aria-hidden="true"></span>
+      <h2><span class="en">Where I studied</span><span class="es">Dónde he estudiado</span></h2>
+    </div>
+    <div class="edu">
+      <article class="ecard">
+        <div class="lg"><img src="assets/img/ugr-logo.png" alt="Universidad de Granada" loading="lazy"></div>
+        <p class="yr"><span class="en">Sep 2021 to Jun 2026</span><span class="es">sep 2021 a jun 2026</span></p>
+        <h3><span class="en">Double Degree in Law and Business Administration</span><span class="es">Doble Grado en Derecho y Administración y Dirección de Empresas</span></h3>
+        <p><span class="en">University of Granada. A legal and business background with an international outlook and a focus on economic and business analysis.</span><span class="es">Universidad de Granada. Formación jurídica y empresarial, con proyección internacional y orientación al análisis económico-empresarial.</span></p>
+      </article>
+      <article class="ecard">
+        <div class="lg"><img src="assets/img/galway-logo.png" alt="University of Galway" loading="lazy"></div>
+        <p class="yr"><span class="en">Sep 2023 to May 2024</span><span class="es">sep 2023 a may 2024</span></p>
+        <h3><span class="en">Erasmus Programme</span><span class="es">Programa Erasmus</span></h3>
+        <p><span class="en">Law and Business Administration and Management at the University of Galway (NUIG), Ireland.</span><span class="es">Derecho y Administración y Dirección de Empresas en la University of Galway (NUIG), Irlanda.</span></p>
       </article>
     </div>
   </div>
@@ -507,7 +573,6 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
         <span class="open"><span class="en">View certificate</span><span class="es">Ver certificado</span></span>
       </button>
       <div class="facts">
-        <div><h4><span class="en">Education</span><span class="es">Formación</span></h4><p><span class="en">Double Degree in Law and Business Administration, University of Granada, 2021 to 2026. Erasmus at the University of Galway, Ireland, 2023 to 2024.</span><span class="es">Doble Grado en Derecho y ADE, Universidad de Granada, 2021 a 2026. Erasmus en la University of Galway, Irlanda, 2023 a 2024.</span></p></div>
         <div><h4><span class="en">Languages</span><span class="es">Idiomas</span></h4><p><span class="en">Spanish, native. English, C1 with C2-level speaking. French, A2.</span><span class="es">Español, nativo. Inglés, C1 con speaking de nivel C2. Francés, A2.</span></p></div>
         <div><h4><span class="en">Tools and more</span><span class="es">Herramientas y más</span></h4><p><span class="en">Generative AI and prompting, Lovable, Figma, Canva, Microsoft Office. Volunteer at the Spanish Red Cross, Socio-Health Emergency Service.</span><span class="es">IA generativa y prompting, Lovable, Figma, Canva, Microsoft Office. Voluntaria en Cruz Roja Española, Servicio de Emergencias Sociosanitarias.</span></p></div>
       </div>
