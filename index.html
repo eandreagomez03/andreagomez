@@ -88,40 +88,35 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .portrait figcaption{position:absolute;left:18px;bottom:16px;background:var(--paper);border-radius:999px;padding:6px 14px;font-size:.8rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.portrait{max-width:380px;width:100%;margin:0 auto}}
 
-/* index of work */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin:-10px 0 30px;align-items:center}
+/* work grid */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:-10px 0 34px;align-items:center}
 .filters .lab{font-size:.9rem;color:var(--muted);margin-right:4px}
 .chip{border:1px solid var(--line);background:var(--paper);padding:8px 16px;border-radius:999px;font-size:.9rem;cursor:pointer;transition:all .2s}
 .chip:hover{border-color:var(--rose)}
 .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--porcelain)}
-.index{border-top:1px solid var(--ink)}
-.row{width:100%;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding:26px 6px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;position:relative;transition:padding .35s cubic-bezier(.2,.7,.2,1),background .3s}
-.row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--blush);z-index:-1;transition:width .45s cubic-bezier(.2,.7,.2,1)}
-.row:hover::before,.row:focus-visible::before{width:100%}
-.row:hover{padding-left:22px}
-.row .t{font-family:var(--display);font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.05}
-.row .t i{font-weight:400}
-.row .c{font-size:.92rem;color:var(--muted)}
-.row .tg{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:240px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px 24px}
+.card{grid-column:span var(--s,6);display:flex;flex-direction:column;gap:16px;border:0;background:none;padding:0;text-align:left;cursor:pointer;color:inherit}
+.card.hide{display:none}
+.cimg{position:relative;display:block;width:100%;height:var(--h,440px);border-radius:20px;overflow:hidden;background:var(--blush);box-shadow:0 30px 60px -42px rgba(80,0,20,.55)}
+.cimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cimg.fit img{object-fit:contain;padding:8%;background:#FFFDFC}
+.cimg.dark{background:#0d0809}
+.cimg.dark img{object-fit:contain}
+.card:hover .cimg img,.card:focus-visible .cimg img{transform:scale(1.06)}
+.cimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,16,15,0) 55%,rgba(22,16,15,.5));opacity:0;transition:opacity .5s}
+.card:hover .cimg::after{opacity:1}
+.badge{position:absolute;left:16px;top:16px;z-index:2;background:var(--paper);color:var(--cherry);font-family:var(--display);font-style:italic;font-size:1rem;padding:6px 14px;border-radius:999px;box-shadow:0 8px 20px -10px rgba(80,0,20,.5)}
+.copen{position:absolute;right:16px;bottom:16px;z-index:2;background:var(--ink);color:var(--porcelain);font-size:.85rem;font-weight:500;padding:9px 16px;border-radius:999px;transform:translateY(14px);opacity:0;transition:all .45s cubic-bezier(.2,.7,.2,1)}
+.card:hover .copen,.card:focus-visible .copen{transform:none;opacity:1}
+.cbody{display:grid;gap:6px;padding:0 4px}
+.cctx{font-size:.84rem;color:var(--muted)}
+.ctitle{font-family:var(--display);font-size:clamp(1.7rem,2.8vw,2.5rem);line-height:1.05;transition:color .3s}
+.ctitle i{font-weight:400}
+.card:hover .ctitle{color:var(--cherry)}
+.cdid{color:#3B2D2F;font-size:.98rem;max-width:52ch}
+.ctags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .tag{font-size:.75rem;padding:4px 10px;border-radius:999px;background:var(--blush);color:#6A1B2E;white-space:nowrap}
-.row:hover .tag{background:var(--paper)}
-.row .th{display:none}
-.row.hide{display:none}
-.award{color:var(--cherry);font-family:var(--display);font-style:italic}
-@media (max-width:820px){
-  .row{grid-template-columns:76px minmax(0,1fr);gap:16px;padding:18px 0}
-  .row:hover{padding-left:0}
-  .row .th{display:block;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--blush);grid-row:span 2}
-  .row .th img{width:100%;height:100%;object-fit:cover}
-  .row .th.txt{display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:.8rem;padding:6px;text-align:center;line-height:1.1}
-  .row .tg{display:none}
-  .row .c{grid-column:2}
-}
-.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/5;border-radius:16px;overflow:hidden;pointer-events:none;z-index:30;opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(-6deg);transition:opacity .25s,transform .45s cubic-bezier(.2,.7,.2,1);box-shadow:0 30px 60px -30px rgba(40,10,15,.6);background:var(--blush)}
-.peek.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-3deg)}
-.peek img{width:100%;height:100%;object-fit:cover}
-.peek .txt{width:100%;height:100%;display:grid;place-items:center;padding:28px;text-align:center;font-family:var(--display);font-style:italic;font-size:1.9rem;line-height:1.1;background:var(--ink);color:var(--porcelain)}
-@media (hover:none),(max-width:820px){.peek{display:none}}
+@media (max-width:900px){.card{grid-column:span 12}.cimg{height:min(78vw,420px)}.copen{opacity:1;transform:none}}
 
 /* case overlay */
 .cases{position:fixed;inset:0;z-index:60;background:var(--porcelain);overflow-y:auto;transform:translateY(100%);transition:transform .7s cubic-bezier(.7,0,.2,1);visibility:hidden;overscroll-behavior:contain}
@@ -202,7 +197,7 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .cam-top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
 .cam-top .score{font-family:var(--display);font-size:3.6rem;line-height:.9;color:var(--cherry);font-variant-numeric:tabular-nums}
 .bars{display:grid;gap:10px;margin-top:14px}
-.bar{display:grid;grid-template-columns:120px 1fr 44px;gap:12px;align-items:center;font-size:.9rem}
+.bar{display:grid;grid-template-columns:150px 1fr 44px;gap:12px;align-items:center;font-size:.9rem}
 .bar .tr{height:10px;background:var(--blush);border-radius:99px;position:relative}
 .bar .fl{height:100%;border-radius:99px;background:var(--ink);width:var(--w);transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
 .bar.c2 .fl{background:var(--cherry)}
@@ -226,6 +221,7 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .board-ready .ln{opacity:0}
 .board-ready .ln.on{opacity:.32}
 .board-ready .ln.me.on{opacity:1}
+.gym.score{transform:rotate(1deg);width:100%}
 .gym{border-radius:var(--r);overflow:hidden;transform:rotate(-1.5deg);box-shadow:0 30px 50px -30px rgba(40,10,15,.45);cursor:zoom-in;border:0;padding:0;background:none;display:block}
 @media (max-width:900px){.beyond .wrap{grid-template-columns:1fr}}
 
@@ -260,7 +256,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* coquette layer: dots, glow, scallops, pearls, script */
 .hero{overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(#E3AEBB 1.1px,transparent 1.4px) 0 0/22px 22px;-webkit-mask-image:radial-gradient(65% 70% at 76% 42%,#000 0%,transparent 78%);mask-image:radial-gradient(65% 70% at 76% 42%,#000 0%,transparent 78%);opacity:.8;pointer-events:none}
-.hero::after{content:"";position:absolute;width:620px;height:620px;right:-120px;top:-60px;border-radius:50%;background:radial-gradient(circle,#F6C9D3 0%,rgba(246,201,211,0) 68%);filter:blur(10px);pointer-events:none;animation:float 12s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;width:620px;height:620px;right:-120px;top:-60px;border-radius:50%;background:radial-gradient(circle,#F6C9D3 0%,rgba(246,201,211,0) 68%);filter:blur(10px);pointer-events:none}
 @keyframes float{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,40px) scale(1.12)}}
 .hero .wrap{position:relative;z-index:1}
 .portrait{border:6px solid #fff;outline:1px solid var(--rose);outline-offset:8px}
@@ -269,30 +265,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:900px){.portrait-wrap{max-width:380px;width:100%;margin:0 auto}.sig{left:-6px}}
 .kicker{font-family:var(--script);font-weight:400;font-size:2rem;line-height:1;color:var(--cherry)}
 .pearls{display:block;width:154px;height:10px;margin-top:2px;background:radial-gradient(circle at 5px 5px,#fff 0 1.6px,#F6DCE2 2.6px,#E0AEBA 4px,transparent 4.4px) 0 0/14px 10px repeat-x}
-.ribbon{position:relative;background:var(--blush);padding:26px 0;overflow:hidden}
-.ribbon::before,.ribbon::after{content:"";position:absolute;left:0;right:0;height:14px;background:radial-gradient(circle at 10px 0,var(--porcelain) 9.5px,transparent 10px) 0 0/20px 14px repeat-x}
-.ribbon::before{top:0}
-.ribbon::after{bottom:0;transform:scaleY(-1)}
-.marq{display:flex;width:max-content;animation:marq 38s linear infinite}
-.ribbon:hover .marq{animation-play-state:paused}
-@keyframes marq{to{transform:translateX(-50%)}}
-.marq button{border:0;background:none;cursor:pointer;font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,3vw,2.4rem);padding:0 26px;color:var(--ink);display:inline-flex;align-items:center;gap:26px;white-space:nowrap;transition:color .25s}
-.marq button:hover{color:var(--cherry)}
-.marq button::after{content:"";width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#F1C9D2 55%,#D99AAA);box-shadow:0 1px 2px rgba(120,20,40,.25)}
 .scallop-foot{height:16px;background:radial-gradient(circle at 10px 16px,var(--blush) 9.5px,transparent 10px) 0 0/20px 16px repeat-x}
 footer{background:var(--blush);border-top:0}
 footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-height:1}
 .progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--rose),var(--cherry));z-index:70}
-.sparks{position:fixed;inset:0;pointer-events:none;z-index:110}
 .cases{transform:none;clip-path:circle(0 at var(--cx,50%) var(--cy,50%));transition:clip-path .85s cubic-bezier(.7,0,.2,1),visibility 0s .85s}
 .cases.on{clip-path:circle(150% at var(--cx,50%) var(--cy,50%));transition:clip-path .85s cubic-bezier(.7,0,.2,1),visibility 0s}
 .case .hl::before{content:"";display:block;width:154px;height:10px;margin-bottom:14px;background:radial-gradient(circle at 5px 5px,#fff 0 1.6px,#F6DCE2 2.6px,#E0AEBA 4px,transparent 4.4px) 0 0/14px 10px repeat-x}
 .track figure{box-shadow:0 0 0 1px var(--line)}
-.row .t{transition:color .3s,letter-spacing .4s}
-.row:hover .t{color:var(--cherry)}
 .ccard{transform-style:preserve-3d}
 .quote{background:radial-gradient(70% 90% at 100% 0%,#3a1520 0%,var(--ink) 60%)}
 .btn.solid{box-shadow:0 10px 24px -14px rgba(163,18,46,.8)}
+.lb .box.doc{background:none;max-width:min(820px,94vw)}
+.docpage{background:#fff;color:#111;font-family:Calibri,Carlito,"Segoe UI",Arial,sans-serif;font-size:15.5px;line-height:1.55;padding:clamp(28px,6vw,72px) clamp(22px,7vw,84px);border-radius:6px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6);text-align:justify;hyphens:none}
+.docpage p{margin:0 0 12px}
+.docpage .dh{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:1px solid #1d4f6e;padding-bottom:14px;margin-bottom:16px;text-align:left;color:#1d4f6e}
+.docpage .dh img{width:150px;height:auto}
+.docpage .dd{text-align:right}
+.docpage h4{font-family:inherit;font-size:1.15rem;color:#1d4f6e;margin:6px 0 14px;text-align:left}
+.docpage .ds{text-align:left;margin-top:18px}
+.docpage .dn{font-size:.8rem;color:#777;text-align:left;margin-top:18px}
 </style>
 </head>
 <body>
@@ -339,14 +331,13 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
 </section>
 
 
-<div class="ribbon" aria-label="Projects"><div class="marq"><button type="button" data-open="lapalma">La Palma</button><button type="button" data-open="carmen">Carmen Conecta 2031</button><button type="button" data-open="arilvitas">ARILVITAS</button><button type="button" data-open="gps">Thesis GPS</button><button type="button" data-open="granate">GranATE</button><button type="button" data-open="jardin">El Jardín de Aura</button><button type="button" data-open="recursos"><span class="en">Resource bank</span><span class="es">Banco de recursos</span></button><button type="button" data-open="alho">ALHO</button><button type="button" data-open="halloween">Resucita la startup</button><button type="button" data-open="ideas">Ideas Factory</button><button type="button" data-open="ie">Innovation &amp; AI</button><span aria-hidden="true" style="display:contents"><button type="button" data-open="lapalma" tabindex="-1">La Palma</button><button type="button" data-open="carmen" tabindex="-1">Carmen Conecta 2031</button><button type="button" data-open="arilvitas" tabindex="-1">ARILVITAS</button><button type="button" data-open="gps" tabindex="-1">Thesis GPS</button><button type="button" data-open="granate" tabindex="-1">GranATE</button><button type="button" data-open="jardin" tabindex="-1">El Jardín de Aura</button><button type="button" data-open="recursos" tabindex="-1"><span class="en">Resource bank</span><span class="es">Banco de recursos</span></button><button type="button" data-open="alho" tabindex="-1">ALHO</button><button type="button" data-open="halloween" tabindex="-1">Resucita la startup</button><button type="button" data-open="ideas" tabindex="-1">Ideas Factory</button><button type="button" data-open="ie" tabindex="-1">Innovation &amp; AI</button></span></div></div>
 <!-- WORK INDEX -->
 <section id="work" style="padding-top:40px">
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker"><span class="en">Selected work</span><span class="es">Proyectos</span></p><span class="pearls" aria-hidden="true"></span>
       <h2><span class="en">Things I've built, led and sold</span><span class="es">Lo que he construido, liderado y vendido</span></h2>
-      <p><span class="en">Open any project to see it with its own photos, documents and links.</span><span class="es">Abre cualquier proyecto para verlo con sus fotos, documentos y enlaces.</span></p>
+      <p><span class="en">What I built, what I led and what I achieved. Open any project to see all its photos, documents and links.</span><span class="es">Lo que he construido, liderado y conseguido. Abre cualquier proyecto para ver todas sus fotos, documentos y enlaces.</span></p>
     </div>
     <div class="filters" role="group" aria-label="Filter work">
       <span class="lab"><span class="en">Show me:</span><span class="es">Enséñame:</span></span>
@@ -358,72 +349,50 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       <button class="chip" type="button" data-filter="program" aria-pressed="false"><span class="en">Selective programs</span><span class="es">Programas selectivos</span></button>
     </div>
 
-    <div class="index" id="index">
-      <button type="button" class="row" data-case="lapalma" data-tags="builder strategy program" data-peek="assets/img/lapalma-pack.jpg">
-        <span class="th"><img src="assets/img/lapalma-pack.jpg" alt="" loading="lazy"></span>
-        <span class="t">La Palma: <i>Cultiva tu Legado</i></span>
-        <span class="c">La Píldora Roja · <span class="award"><span class="en">Most innovative idea</span><span class="es">Idea más innovadora</span></span></span>
-        <span class="tg"><span class="tag"><span class="en">AI builder</span><span class="es">IA</span></span><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span></span>
+    <div class="grid" id="index">
+      <button type="button" class="row card" style="--s:7;--h:520px" data-case="lapalma" data-tags="builder strategy program">
+        <span class="cimg fit"><img src="assets/img/lapalma-pack.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Most innovative idea</span><span class="es">Idea más innovadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">La Píldora Roja, <span class="en">University of Granada</span><span class="es">Universidad de Granada</span></span><span class="ctitle">La Palma: <i>Cultiva tu Legado</i></span><span class="cdid"><span class="en">A plantable pack for cherry tomatoes and the gamified platform behind its QR code, which I built myself.</span><span class="es">Un envase plantable para tomates cherry y la plataforma gamificada de su QR, que construí yo sola.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag"><span class="en">Sustainability</span><span class="es">Sostenibilidad</span></span></span></span>
       </button>
-      <button type="button" class="row" data-case="carmen" data-tags="strategy communication program" data-peek="assets/img/carmen-web.jpg">
-        <span class="th"><img src="assets/img/carmen-web.jpg" alt="" loading="lazy"></span>
-        <span class="t">Carmen Conecta <i>2031</i></span>
-        <span class="c">Red Emprende · <span class="award"><span class="en">Winner</span><span class="es">Ganadora</span></span></span>
-        <span class="tg"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag">Pitch</span></span>
+      <button type="button" class="row card" style="--s:5;--h:520px" data-case="carmen" data-tags="strategy communication program">
+        <span class="cimg "><img src="assets/img/mic.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Winner</span><span class="es">Ganadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx"><span class="en">Red Emprende, Junta de Andalucía</span><span class="es">Red Emprende, Junta de Andalucía</span></span><span class="ctitle">Carmen Conecta <i>2031</i></span><span class="cdid"><span class="en">An intergenerational network for Granada 2031. I pitched it to the jury and we won.</span><span class="es">Una red intergeneracional para Granada 2031. La presenté ante el jurado y ganamos.</span></span><span class="ctags"><span class="tag"><span class="en">Pitch</span><span class="es">Pitch</span></span><span class="tag"><span class="en">Social impact</span><span class="es">Impacto social</span></span></span></span>
       </button>
-      <button type="button" class="row" data-case="arilvitas" data-tags="strategy communication" data-peek="assets/img/arilvitas.jpg">
-        <span class="th"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"></span>
-        <span class="t">ARILVITAS</span>
-        <span class="c"><span class="en">Interdisciplinary entrepreneurship TFG</span><span class="es">TFG emprendedor interdisciplinar</span></span>
-        <span class="tg"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag"><span class="en">Tourism</span><span class="es">Turismo</span></span></span>
+      <button type="button" class="row card" style="--s:5;--h:480px" data-case="gps" data-tags="builder program">
+        <span class="cimg "><img src="assets/img/starthack.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">START Hack 2026, St. Gallen</span><span class="ctitle">Thesis <i>GPS</i></span><span class="cdid"><span class="en">An AI thesis navigator, built with my team at one of Europe's best-known student hackathons.</span><span class="es">Un navegador de tesis con IA, construido con mi equipo en uno de los hackathons universitarios más reconocidos de Europa.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Hackathon</span></span></span>
       </button>
-      <button type="button" class="row" data-case="gps" data-tags="builder program" data-peek="assets/img/starthack.jpg">
-        <span class="th"><img src="assets/img/starthack.jpg" alt="" loading="lazy"></span>
-        <span class="t">Thesis <i>GPS</i></span>
-        <span class="c">START Hack 2026, St. Gallen</span>
-        <span class="tg"><span class="tag"><span class="en">AI builder</span><span class="es">IA</span></span><span class="tag">Hackathon</span></span>
+      <button type="button" class="row card" style="--s:7;--h:480px" data-case="arilvitas" data-tags="strategy communication">
+        <span class="cimg dark"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx"><span class="en">Interdisciplinary entrepreneurship TFG</span><span class="es">TFG emprendedor interdisciplinar</span></span><span class="ctitle">ARILVITAS</span><span class="cdid"><span class="en">“Cultura sin colapso”: a web to enjoy Granada without overwhelming it.</span><span class="es">“Cultura sin colapso”: una web para disfrutar Granada sin colapsarla.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag"><span class="en">Tourism</span><span class="es">Turismo</span></span></span></span>
       </button>
-      <button type="button" class="row" data-case="granate" data-tags="strategy program" data-peek="assets/img/granate.jpg">
-        <span class="th"><img src="assets/img/granate.jpg" alt="" loading="lazy"></span>
-        <span class="t"><i>Gran</i>ATE</span>
-        <span class="c">Bootcamp UNIVERGEM</span>
-        <span class="tg"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag">B2B</span></span>
+      <button type="button" class="row card" style="--s:4;--h:400px" data-case="granate" data-tags="strategy program">
+        <span class="cimg "><img src="assets/img/bootcamp-five.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">Bootcamp UNIVERGEM</span><span class="ctitle"><i>Gran</i>ATE</span><span class="cdid"><span class="en">A B2B platform that turns food surplus into income. Designed in four days.</span><span class="es">Una plataforma B2B que convierte excedentes en ingresos. Diseñada en cuatro días.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag">B2B</span></span></span>
       </button>
-      <button type="button" class="row" data-case="jardin" data-tags="builder communication" data-peek-text="De mi jardín al tuyo">
-        <span class="th txt">De mi jardín al tuyo</span>
-        <span class="t">El Jardín <i>de Aura</i></span>
-        <span class="c"><span class="en">Online shop</span><span class="es">Tienda online</span></span>
-        <span class="tg"><span class="tag"><span class="en">AI builder</span><span class="es">IA</span></span><span class="tag">E-commerce</span></span>
+      <button type="button" class="row card" style="--s:4;--h:400px" data-case="alho" data-tags="strategy communication">
+        <span class="cimg "><img src="assets/img/alho-stand.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">Treze Market, Cabo de Gata</span><span class="ctitle">ALHO</span><span class="cdid"><span class="en">Sales ideas that drew crowds to the stand: an Instagram roulette and a mirror pun.</span><span class="es">Ideas de venta que llenaron la caseta: una ruleta de Instagram y un juego de palabras en el espejo.</span></span><span class="ctags"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span></span>
       </button>
-      <button type="button" class="row" data-case="recursos" data-tags="builder" data-peek-text="Lovable · UGR Emprendedora">
-        <span class="th txt">UGR</span>
-        <span class="t"><span class="en">Resource <i>bank</i></span><span class="es">Banco de <i>recursos</i></span></span>
-        <span class="c">UGR Emprendedora</span>
-        <span class="tg"><span class="tag"><span class="en">AI builder</span><span class="es">IA</span></span><span class="tag">Lovable</span></span>
+      <button type="button" class="row card" style="--s:4;--h:400px" data-case="jardin" data-tags="builder communication">
+        <span class="cimg fit"><img src="assets/img/jardin-logo.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx"><span class="en">Online shop, Almería</span><span class="es">Tienda online, Almería</span></span><span class="ctitle">El Jardín <i>de Aura</i></span><span class="cdid"><span class="en">I designed and built the online shop for a handmade flower brand.</span><span class="es">Diseñé y construí la tienda online de una marca de flores hechas a mano.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">E-commerce</span></span></span>
       </button>
-      <button type="button" class="row" data-case="alho" data-tags="strategy communication" data-peek="assets/img/alho-stand.jpg">
-        <span class="th"><img src="assets/img/alho-stand.jpg" alt="" loading="lazy"></span>
-        <span class="t">ALHO <i>at Treze Market</i></span>
-        <span class="c"><span class="en">Sales and marketing</span><span class="es">Ventas y marketing</span></span>
-        <span class="tg"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span>
+      <button type="button" class="row card" style="--s:6;--h:420px" data-case="halloween" data-tags="leadership communication">
+        <span class="cimg "><img src="assets/img/halloween-group.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora x Breaker</span><span class="ctitle">Resucita <i>la startup</i></span><span class="cdid"><span class="en">I organised and led a Halloween workshop on learning from failed startups.</span><span class="es">Organicé y guié un taller de Halloween para aprender de startups que fracasaron.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Events</span><span class="es">Eventos</span></span></span></span>
       </button>
-      <button type="button" class="row" data-case="halloween" data-tags="leadership communication" data-peek="assets/img/halloween-group.jpg">
-        <span class="th"><img src="assets/img/halloween-group.jpg" alt="" loading="lazy"></span>
-        <span class="t"><span class="en">Resucita <i>la startup</i></span><span class="es">Resucita <i>la startup</i></span></span>
-        <span class="c"><span class="en">Workshop I organised and led</span><span class="es">Taller que organicé y guié</span></span>
-        <span class="tg"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Events</span><span class="es">Eventos</span></span></span>
+      <button type="button" class="row card" style="--s:6;--h:420px" data-case="ideas" data-tags="leadership">
+        <span class="cimg "><img src="assets/img/ideas-close.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora</span><span class="ctitle"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span><span class="cdid"><span class="en">I mentored teams turning ideas into projects in a 48-hour hackathon.</span><span class="es">Acompañé a equipos que convertían ideas en proyectos en un hackathon de 48 horas.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span></span>
       </button>
-      <button type="button" class="row" data-case="ideas" data-tags="leadership" data-peek="assets/img/ideas-close.jpg">
-        <span class="th"><img src="assets/img/ideas-close.jpg" alt="" loading="lazy"></span>
-        <span class="t"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span>
-        <span class="c"><span class="en">48-hour idea hackathon</span><span class="es">Hackathon de ideas de 48 horas</span></span>
-        <span class="tg"><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span>
+      <button type="button" class="row card" style="--s:5;--h:420px" data-case="recursos" data-tags="builder">
+        <span class="cimg fit"><img src="assets/img/ugr-emprendedora.png" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora</span><span class="ctitle"><span class="en">Resource <i>bank</i></span><span class="es">Banco de <i>recursos</i></span></span><span class="cdid"><span class="en">A web app for founders that I built on my own with Lovable.</span><span class="es">Una app web para emprender que construí por mi cuenta con Lovable.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Lovable</span></span></span>
       </button>
-      <button type="button" class="row" data-case="ie" data-tags="program" data-peek="assets/img/ie-stage.jpg">
-        <span class="th"><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"></span>
-        <span class="t">Innovation &amp; <i>AI</i></span>
-        <span class="c">IE University x Santander · <span class="award">90 <span class="en">of</span><span class="es">de</span> 105,000+</span></span>
-        <span class="tg"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span></span>
+      <button type="button" class="row card" style="--s:7;--h:420px" data-case="ie" data-tags="program">
+        <span class="cimg "><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"><span class="badge">90 <span class="en">of</span><span class="es">de</span> 105,000+</span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">Selected as one of 90 participants from more than 105,000 applicants.</span><span class="es">Seleccionada entre 90 participantes de más de 105.000 candidaturas.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span></span></span>
       </button>
     </div>
   </div>
@@ -459,7 +428,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
         </div>
       </article>
       <article>
-        <div class="when"><span class="en">Dec 2025 to Jun 2026</span><span class="es">dic 2025 a jun 2026</span><br>Granada</div>
+        <div class="when"><span class="en">Dec 2025 to Jun 2026</span><span class="es">dic 2025 a jun 2026</span><br>Granada<img src="assets/img/ugr-emprendedora.png" alt="UGR Emprendedora" width="150" height="47" style="background:#fff;padding:6px;border-radius:8px;height:auto"></div>
         <div>
           <h3>UGR Emprendedora</h3>
           <p class="pos"><span class="en">Trainee in Entrepreneurship and Innovation Management, University of Granada</span><span class="es">Trainee en Gestión de Emprendimiento e Innovación, Universidad de Granada</span></p>
@@ -488,7 +457,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       </div>
       <figcaption class="who">
         <div><b>Ana Isabel Rodríguez</b><br><span><span class="en">Internship Lead and Entrepreneurship Specialist, UGR Emprendedora. Translated from Spanish.</span><span class="es">Responsable de Prácticas y Técnica de Emprendimiento, UGR Emprendedora</span></span></div>
-        <button type="button" class="btn small" data-lb="assets/img/letter-1.jpg|assets/img/letter-2.jpg"><span class="en">Read the full letter</span><span class="es">Leer la carta completa</span></button>
+        <button type="button" class="btn small" data-doc="doc-letter"><span class="en">Read the full letter</span><span class="es">Leer la carta completa</span></button>
       </figcaption>
     </figure>
   </div>
@@ -504,15 +473,15 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     <div class="cred">
       <article class="ccard cam">
         <div class="cam-top">
-          <div><p class="iss">Cambridge English, <span class="en">Sep 2024</span><span class="es">sep 2024</span></p><h3>C1 Advanced, Grade B</h3></div>
+          <div><p class="iss">Cambridge English, <span class="en">Sep 2024</span><span class="es">sep 2024</span></p><h3>C1 Advanced, <span class="en">Grade B</span><span class="es">nota B</span></h3></div>
           <div style="text-align:right"><p class="score" data-count="199">199</p><button type="button" class="btn small ghost" data-lb="assets/img/cert-cambridge.jpg" style="margin-top:10px"><span class="en">View certificate</span><span class="es">Ver certificado</span></button></div>
         </div>
         <div class="bars" id="bars">
-          <div class="bar"><span>Reading</span><div class="tr"><div class="fl" style="--w:74%"></div><span class="c2line"></span></div><span class="v">197</span></div>
-          <div class="bar c2"><span>Use of English</span><div class="tr"><div class="fl" style="--w:86%"></div><span class="c2line"></span></div><span class="v">203</span></div>
-          <div class="bar"><span>Writing</span><div class="tr"><div class="fl" style="--w:66%"></div><span class="c2line"></span></div><span class="v">193</span></div>
-          <div class="bar"><span>Listening</span><div class="tr"><div class="fl" style="--w:74%"></div><span class="c2line"></span></div><span class="v">197</span></div>
-          <div class="bar c2"><span>Speaking</span><div class="tr"><div class="fl" style="--w:90%"></div><span class="c2line"></span></div><span class="v">205</span></div>
+          <div class="bar"><span><span class="en">Reading</span><span class="es">Comprensión lectora</span></span><div class="tr"><div class="fl" style="--w:74%"></div><span class="c2line"></span></div><span class="v">197</span></div>
+          <div class="bar c2"><span><span class="en">Use of English</span><span class="es">Uso del inglés</span></span><div class="tr"><div class="fl" style="--w:86%"></div><span class="c2line"></span></div><span class="v">203</span></div>
+          <div class="bar"><span><span class="en">Writing</span><span class="es">Expresión escrita</span></span><div class="tr"><div class="fl" style="--w:66%"></div><span class="c2line"></span></div><span class="v">193</span></div>
+          <div class="bar"><span><span class="en">Listening</span><span class="es">Comprensión auditiva</span></span><div class="tr"><div class="fl" style="--w:74%"></div><span class="c2line"></span></div><span class="v">197</span></div>
+          <div class="bar c2"><span><span class="en">Speaking</span><span class="es">Expresión oral</span></span><div class="tr"><div class="fl" style="--w:90%"></div><span class="c2line"></span></div><span class="v">205</span></div>
         </div>
         <p class="c2lab"><span class="en">In red: 200 or more, which Cambridge places at C2 level. Scale from 160 to 210.</span><span class="es">En rojo: 200 o más, que Cambridge sitúa en nivel C2. Escala de 160 a 210.</span></p>
       </article>
@@ -553,14 +522,8 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       <p class="kicker"><span class="en">Beyond work</span><span class="es">Más allá del trabajo</span></p>
       <h2 style="font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 18px"><span class="en">5th in Spain on the <i>uneven bars</i></span><span class="es">5.ª de España en <i>asimétricas</i></span></h2>
       <p style="max-width:46ch;color:#3B2D2F;margin-bottom:28px"><span class="en">National women's artistic gymnastics competition.</span><span class="es">Competición nacional de gimnasia artística femenina.</span></p>
-      <div class="board" id="board" role="img" aria-label="Scoreboard: Andrea Gómez finished 5th with 8.250">
-        <p class="hd">PROMOGYM 2 <span class="en">BARS</span><span class="es">PARALELAS</span></p>
-        <div class="ln"><span>1</span><span>■■■■■ ■■■■■</span><span>9,050</span></div>
-        <div class="ln"><span>2</span><span>■■■■■ ■■■■■</span><span>8,600</span></div>
-        <div class="ln"><span>3</span><span>■■■■■ ■■■■■</span><span>8,450</span></div>
-        <div class="ln"><span>4</span><span>■■■■■ ■■■■■</span><span>8,300</span></div>
-        <div class="ln me"><span>5</span><span>ANDREA GÓMEZ</span><span>8,250</span></div>
-      </div>
+      <button type="button" class="gym score" data-lb="assets/img/scoreboard.jpg" aria-label="Open scoreboard photo"><img src="assets/img/scoreboard.jpg" alt="Scoreboard: 5. Andrea Gómez, 8,250" loading="lazy"></button>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:10px"><span class="en">The other gymnasts' names are hidden.</span><span class="es">Los nombres de las demás gimnastas están tapados.</span></p>
     </div>
     <button type="button" class="gym" data-lb="assets/img/gym.jpg" aria-label="Open photo"><img src="assets/img/gym.jpg" alt="Andrea competing on the uneven bars" loading="lazy"></button>
   </div>
@@ -726,8 +689,11 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       <p class="role"><span class="en">I designed and built the online shop.</span><span class="es">Diseñé y construí la tienda online.</span></p>
       <div class="links"><a class="btn small solid" href="https://eljardindeaura.shop/" target="_blank" rel="noopener"><span class="en">Visit the shop</span><span class="es">Ver la tienda</span></a></div>
     </div>
-    <div class="gal">
-      <div class="cover-txt"><p class="big">De mi jardín al tuyo</p><p class="src">eljardindeaura.shop</p></div>
+    <div class="gal" data-gal>
+      <div class="track">
+        <figure><img src="assets/img/jardin-logo.jpg" alt="El Jardín de Aura logo" loading="lazy" style="background:#FFFDFC;padding:6%"><button type="button" aria-label="Enlarge"></button></figure>
+      </div>
+      <div class="gctl"><div class="dots"></div><div class="arrows"></div></div>
     </div>
   </article>
 
@@ -741,7 +707,8 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       <p class="role"><span class="en">Spotted the need, designed it and built it, solo.</span><span class="es">Detecté la necesidad, la diseñé y la construí, yo sola.</span></p>
     </div>
     <div class="gal">
-      <div class="cover-txt">
+      <div style="background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(28px,6vw,60px);display:grid;place-items:center;margin-bottom:14px"><img src="assets/img/ugr-emprendedora.png" alt="UGR Emprendedora" style="max-width:420px;width:80%"></div>
+      <div class="cover-txt" style="height:auto">
         <p class="big"><span class="en">“A database of entrepreneurship materials of great practical use.”</span><span class="es">“Una base de datos de materiales de emprendimiento de gran utilidad práctica.”</span></p>
         <ul><li><span class="en">Legal structures</span><span class="es">Formas jurídicas</span></li><li><span class="en">Business model canvases</span><span class="es">Lienzos de modelo de negocio</span></li><li><span class="en">Property registration</span><span class="es">Registro de la propiedad</span></li><li><span class="en">Financial analysis templates</span><span class="es">Plantillas de análisis económico-financiero</span></li></ul>
         <p class="src"><span class="en">From Ana Isabel Rodríguez's recommendation letter, UGR Emprendedora</span><span class="es">De la carta de recomendación de Ana Isabel Rodríguez, UGR Emprendedora</span></p>
@@ -825,7 +792,6 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
   </article>
 </div>
 
-<div class="peek" id="peek" aria-hidden="true"></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
   <button type="button" class="x" id="lbx" aria-label="Close">×</button>
@@ -835,8 +801,20 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
   <span class="cnt" id="lbc"></span>
 </div>
 
+
+<template id="doc-letter">
+  <article class="docpage">
+    <header class="dh"><div><b>UGR Emprendedora</b><br>Universidad de Granada<br>ugremprendedora.ugr.es</div><img src="assets/img/ugr-emprendedora.png" alt="UGR Emprendedora"></header>
+    <p class="dd"><span class="en">Granada, 18 June 2026</span><span class="es">Granada, 18 de junio de 2026</span></p>
+    <h4><span class="en">LETTER OF RECOMMENDATION</span><span class="es">CARTA DE RECOMENDACIÓN</span></h4>
+    <p><b><span class="en">To whom it may concern:</span><span class="es">A quien pueda interesar:</span></b></p>
+    <p><span class="en">It is our pleasure to recommend Andrea Gómez, who has worked with UGR Emprendedora in the areas of Technology, Communication and Entrepreneurship, with outstanding results in every responsibility she has been given.</span><span class="es">Tenemos el placer de recomendar a Andrea Gómez, quien ha colaborado con UGR Emprendedora desempeñando funciones en las áreas de Tecnología, Comunicación y Emprendimiento, con resultados sobresalientes en cada una de las responsabilidades que se le han encomendado.</span></p><p><span class="en">In technology, Andrea independently developed a web application using Lovable, creating a database of entrepreneurship materials of great practical use. The resource covers everything from the different legal structures to canvases for developing business models, as well as information on property registration and templates for economic and financial analysis. This initiative shows her outstanding ability to combine strategic vision with technical execution, and her skill at identifying real needs and answering them with practical solutions.</span><span class="es">En el ámbito tecnológico, Andrea ha desarrollado de forma autónoma una aplicación web utilizando la herramienta Lovable, dando lugar a una base de datos de materiales de emprendimiento de gran utilidad práctica. Este recurso abarca desde las distintas formas jurídicas hasta lienzos de apoyo para el desarrollo de modelos de negocio, pasando por información sobre registro de la propiedad y plantillas de análisis económico-financiero. Esta iniciativa muestra su capacidad para combinar visión estratégica con ejecución técnica de manera sobresaliente, así como su habilidad para identificar necesidades reales y darles respuesta con soluciones prácticas.</span></p><p><span class="en">In Communication, Andrea has shown an exceptional command of the corporate image of UGR Emprendedora and the University of Granada, carrying that identity consistently and creatively to every social network. She stands out for her ability to adapt tone and format to each platform, with a fine, intelligent sense of humour that is always respectful of the audience and the brand. She has also interviewed and given visibility to UGR entrepreneurs, writing the corresponding articles and producing the audiovisual coverage of those meetings with great professionalism.</span><span class="es">En el área de Comunicación, Andrea ha demostrado un dominio excepcional de la imagen corporativa de UGR Emprendedora y de la Universidad de Granada, trasladando dicha identidad con coherencia y creatividad a cada red social. Destaca especialmente su capacidad para adaptar el tono y el formato a cada plataforma, incluyendo un sentido del humor fino, inteligente y siempre respetuoso con el público y la marca. Asimismo, ha entrevistado y dado visibilidad a emprendedores y emprendedoras de la UGR, redactando los correspondientes artículos y realizando la cobertura audiovisual de dichos encuentros con gran profesionalidad.</span></p><p><span class="en">Her involvement in the entrepreneurial ecosystem has been equally remarkable. Andrea has run and taken an active part in many events and workshops, including Networking activities, La Píldora Roja, the Women Entrepreneurs Bootcamp and the Red Emprende Program, among others. On top of this comes her ongoing training in Law and Business Administration, knowledge she has put into practice advising early-stage startups. She also contributed to the organisation's 10th Anniversary campaign, taking part in its data and impact analysis.</span><span class="es">Su implicación en el ecosistema emprendedor ha sido igualmente destacada. Andrea ha dinamizado y participado activamente en múltiples eventos y workshops, entre ellos actividades de Networking, La Píldora Roja, el Bootcamp para Emprendedoras y el Programa Red Emprende, entre otros. A todo ello se suma su constante formación en Derecho y en Dirección y Administración de Empresas, conocimientos que ha puesto en práctica asesorando a startups incipientes. También ha contribuido al desarrollo de la campaña del X Aniversario de la organización, participando en el análisis de datos e impacto de la misma.</span></p><p><span class="en">In short, in my ten years of experience in entrepreneurship, Andrea Gómez is one of the most outstanding people I have had the privilege to work with. She shows initiative, intelligence, proactivity and enormous warmth and humanity, which have driven the cohesion of the rest of the intern team. Her natural, horizontal leadership has got the other interns collaborating, taking part, laughing and keeping up their motivation and pace of work.</span><span class="es">En definitiva, Andrea Gómez es, en mis diez años de experiencia en emprendimiento, una de las personas más sobresalientes con las que he tenido el privilegio de trabajar. Muestra iniciativa, inteligencia, proactividad y una enorme calidez y cercanía humana que han sido motor de cohesión para el resto del equipo becario. Su liderazgo natural y horizontal ha logrado que las demás personas becarias colaboren, participen, se rían y mantengan la motivación y el ritmo de trabajo.</span></p><p><span class="en">She is also a versatile professional, with a rare profile that combines technical skill, a feel for communication and an entrepreneurial spirit. I am completely convinced that wherever she decides to work, she will perform brilliantly. My sincere thanks for her work, and congratulations to the person or organisation that decides to count on her.</span><span class="es">Además, es una profesional versátil, con un perfil poco común que aúna competencia técnica, sensibilidad comunicativa y espíritu emprendedor. Estoy completamente convencida de que allá donde decida trabajar realizará un brillante desempeño. Mi más sincero agradecimiento a su trabajo, y enhorabuena a la persona u organización que decida contar con ella.</span></p>
+    <p><span class="en">Yours sincerely,</span><span class="es">Atentamente,</span></p>
+    <p class="ds"><b>Ana Isabel Rodríguez</b><br><span class="en">Internship Lead and Entrepreneurship Specialist</span><span class="es">Responsable de Prácticas y Técnica de Emprendimiento</span><br><span class="en">UGR Emprendedora Office</span><span class="es">Dirección de UGR Emprendedora</span><br>Universidad de Granada<br>ugremprendedora.ugr.es</p>
+    <p class="dn"><span class="en">English translation of the original letter in Spanish. Switch to ES to read the original.</span><span class="es">Transcripción de la carta original.</span></p>
+  </article>
+</template>
 <div class="progress" id="progress" aria-hidden="true"></div>
-<canvas class="sparks" id="sparks" aria-hidden="true"></canvas>
 <div class="cur" id="cur" aria-hidden="true"><span id="curl"></span></div>
 
 <script>
@@ -888,20 +866,6 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     $$('.row').forEach(function(r){ r.classList.toggle('hide', !(f === 'all' || r.dataset.tags.split(' ').indexOf(f) > -1)); });
   }); });
 
-  /* hover peek */
-  var peek = $('#peek'), px = 0, py = 0, tx = 0, ty = 0, peekOn = false;
-  if(fine){
-    $$('.row').forEach(function(r){
-      r.addEventListener('pointerenter', function(){
-        peek.innerHTML = r.dataset.peek ? '<img src="' + r.dataset.peek + '" alt="">' : '<div class="txt">' + r.dataset.peekText + '</div>';
-        peek.classList.add('on'); peekOn = true;
-      });
-      r.addEventListener('pointerleave', function(){ peek.classList.remove('on'); peekOn = false; });
-    });
-    window.addEventListener('pointermove', function(e){ tx = e.clientX + 180; ty = e.clientY; }, {passive:true});
-    (function loop(){ px += (tx - px) * .14; py += (ty - py) * .14; peek.style.left = px + 'px'; peek.style.top = py + 'px'; requestAnimationFrame(loop); })();
-  }
-
   /* galleries */
   function initGal(g){
     var track = $('.track', g), figs = $$('figure', track), dots = $('.dots', g);
@@ -946,7 +910,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     if(lastRow) lastRow.focus();
   }
   function origin(e){ var x = e && e.clientX ? e.clientX : window.innerWidth / 2, y = e && e.clientY ? e.clientY : window.innerHeight / 2; cases.style.setProperty('--cx', x + 'px'); cases.style.setProperty('--cy', y + 'px'); }
-  $$('.row').forEach(function(r){ r.addEventListener('click', function(e){ lastRow = r; peek.classList.remove('on'); origin(e); showCase(r.dataset.case); }); });
+  $$('.row').forEach(function(r){ r.addEventListener('click', function(e){ lastRow = r; origin(e); showCase(r.dataset.case); }); });
   $$('[data-open]').forEach(function(b){ b.addEventListener('click', function(e){ lastRow = b; origin(e); showCase(b.dataset.open); }); });
   $('#cclose').addEventListener('click', closeCase);
   function step(d){ var vo = visibleOrder(); if(!vo.length) vo = order; var i = (vo.indexOf(order[cur]) + d + vo.length) % vo.length; showCase(vo[(Math.max(0, cur) + d + vo.length) % vo.length]); }
@@ -960,18 +924,17 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
   function railUpd(){ var r = exp.getBoundingClientRect(), vh = window.innerHeight; var p = Math.min(1, Math.max(0, (vh * .7 - r.top) / r.height)); rail.style.height = (p * 100) + '%'; }
   window.addEventListener('scroll', railUpd, {passive:true}); railUpd();
 
-  /* cambridge bars + scoreboard */
-  var bars = $('#bars'), board = $('#board');
+  /* cambridge bars */
+  var bars = $('#bars');
   if(!reduce){
-    bars.classList.add('bars-ready'); board.classList.add('board-ready');
+    bars.classList.add('bars-ready');
     new IntersectionObserver(function(en, o){ if(en[0].isIntersecting){ o.disconnect(); requestAnimationFrame(function(){ bars.classList.remove('bars-ready'); }); } }, {threshold:.4}).observe(bars);
-    new IntersectionObserver(function(en, o){ if(!en[0].isIntersecting) return; o.disconnect(); $$('.ln', board).forEach(function(l, i){ setTimeout(function(){ l.classList.add('on'); }, 250 + i * 420); }); }, {threshold:.5}).observe(board);
   }
 
   /* lightbox */
   var lb = $('#lb'), box = $('#lbbox'), lbList = [], lbAlts = [], lbI = 0, lbFocus = null;
   function drawLb(){
-    box.innerHTML = '';
+    box.innerHTML = ''; box.classList.remove('doc');
     if(lbList.length === 1 || lbList.stacked){
       lbList.forEach(function(s){ var im = new Image(); im.src = s; im.alt = lbAlts[0] || ''; box.appendChild(im); });
     } else {
@@ -982,7 +945,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     $('#lbc').textContent = multi ? (lbI + 1) + ' / ' + lbList.length : '';
   }
   function openLb(list, i, alts, stacked){ lbList = list; lbList.stacked = !!stacked; lbAlts = alts || []; lbI = i || 0; lbFocus = document.activeElement; drawLb(); lb.classList.add('on'); $('#lbx').focus(); }
-  function closeLb(){ lb.classList.remove('on'); box.innerHTML = ''; if(lbFocus) lbFocus.focus(); }
+  function closeLb(){ lb.classList.remove('on'); box.innerHTML = ''; box.classList.remove('doc'); if(lbFocus) lbFocus.focus(); }
   function lbStep(d){ if(lbList.length < 2 || lbList.stacked) return; lbI = (lbI + d + lbList.length) % lbList.length; drawLb(); }
   $('#lbx').addEventListener('click', closeLb);
   $('#lbp').addEventListener('click', function(){ lbStep(-1); });
@@ -1005,27 +968,6 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
   function progUpd(){ var h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')'; }
   window.addEventListener('scroll', progUpd, {passive:true}); progUpd();
 
-  /* sparkles */
-  var cv = $('#sparks'), cx2 = cv.getContext('2d'), parts = [], dpr = Math.min(2, window.devicePixelRatio || 1);
-  function size(){ cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; cv.style.width = innerWidth + 'px'; cv.style.height = innerHeight + 'px'; }
-  size(); window.addEventListener('resize', size);
-  var cols = ['#A3122E','#E7A9B7','#F5DFE2','#ffffff','#D3405E'];
-  function spawn(x, y, n, burst){ for(var i = 0; i < n; i++){ var a = Math.random() * Math.PI * 2, v = burst ? 1 + Math.random() * 3 : Math.random() * .8; parts.push({x:x, y:y, vx:Math.cos(a) * v, vy:Math.sin(a) * v - (burst ? 1 : .3), r:2 + Math.random() * 4, life:1, c:cols[(Math.random() * cols.length) | 0], rot:Math.random() * 3}); } if(parts.length > 160) parts.splice(0, parts.length - 160); }
-  function star(x, y, r, rot){ cx2.save(); cx2.translate(x, y); cx2.rotate(rot); cx2.beginPath(); for(var i = 0; i < 4; i++){ cx2.lineTo(0, -r); cx2.quadraticCurveTo(0, 0, r, 0); cx2.rotate(Math.PI / 2); } cx2.closePath(); cx2.fill(); cx2.restore(); }
-  var running = false;
-  function frame(){
-    cx2.clearRect(0, 0, cv.width, cv.height);
-    for(var i = parts.length - 1; i >= 0; i--){ var p = parts[i]; p.x += p.vx; p.y += p.vy; p.vy += .03; p.life -= .022; p.rot += .05; if(p.life <= 0){ parts.splice(i, 1); continue; } cx2.globalAlpha = p.life; cx2.fillStyle = p.c; star(p.x * dpr, p.y * dpr, p.r * dpr * p.life, p.rot); }
-    cx2.globalAlpha = 1;
-    if(parts.length) requestAnimationFrame(frame); else running = false;
-  }
-  function kick(){ if(!running){ running = true; requestAnimationFrame(frame); } }
-  if(!reduce){
-    var lastS = 0;
-    window.addEventListener('pointermove', function(e){ if(e.pointerType !== 'mouse') return; var t = performance.now(); if(t - lastS < 28) return; lastS = t; spawn(e.clientX, e.clientY, 1, false); kick(); }, {passive:true});
-    window.addEventListener('pointerdown', function(e){ spawn(e.clientX, e.clientY, 14, true); kick(); }, {passive:true});
-  }
-
   /* tilt credential cards + magnetic buttons */
   if(fine && !reduce){
     $$('.ccard').forEach(function(c){
@@ -1037,6 +979,15 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
       b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
     });
   }
+
+
+  /* documents */
+  $$('[data-doc]').forEach(function(b){ b.addEventListener('click', function(){
+    var t = document.getElementById(b.dataset.doc); lbFocus = document.activeElement;
+    box.innerHTML = ''; box.classList.add('doc'); box.appendChild(t.content.cloneNode(true));
+    $('#lbp').style.display = $('#lbn').style.display = 'none'; $('#lbc').textContent = '';
+    lb.classList.add('on'); box.scrollTop = 0; $('#lbx').focus();
+  }); });
 
   /* copy email */
   $('#copy').addEventListener('click', function(){
@@ -1052,7 +1003,7 @@ footer .sigf{font-family:var(--script);font-size:2rem;color:var(--cherry);line-h
     var mx = -50, my = -50, cx = -50, cy = -50;
     window.addEventListener('pointermove', function(e){
       mx = e.clientX; my = e.clientY; cu.classList.add('on');
-      var row = e.target.closest && e.target.closest('.row, [data-open]'), fig = e.target.closest && e.target.closest('.track figure, [data-lb]');
+      var row = e.target.closest && e.target.closest('.row'), fig = e.target.closest && e.target.closest('.track figure, [data-lb]');
       var big = !!(row || fig);
       cu.classList.toggle('big', big);
       cl.textContent = row ? (L() === 'es' ? 'Abrir' : 'Open') : fig ? (L() === 'es' ? 'Ver' : 'View') : '';
