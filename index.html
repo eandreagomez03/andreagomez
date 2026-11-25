@@ -149,6 +149,25 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .vol h3{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin:0 0 12px}
 .vol p:not(.kicker){color:#3B2D2F;max-width:46ch}
 @media (max-width:900px){.vol .wrap{grid-template-columns:1fr}.track figure.vid video{height:auto;max-height:66vh}}
+.built{padding-top:60px}
+.btrack{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.btile{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.btile:hover{transform:translateY(-4px);box-shadow:0 30px 60px -38px rgba(163,18,46,.5)}
+.bbar{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff}
+.bdot{width:9px;height:9px;border-radius:50%;background:var(--rose);flex:0 0 auto}
+.burl{flex:1;min-width:0;font-size:.78rem;color:var(--muted);background:var(--porcelain);border-radius:999px;padding:5px 11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btool{font-size:.72rem;font-weight:600;color:var(--cherry);border:1px solid var(--rose);border-radius:999px;padding:3px 9px;flex:0 0 auto}
+.bimg{display:block;border:0;padding:0;margin:0;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--blush);cursor:pointer}
+.bimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.bimg.fit{background:#fff}.bimg.fit img{object-fit:contain;padding:12%;box-sizing:border-box}
+.bimg.dark{background:#141414}.bimg.dark img{object-fit:contain}
+.btile:hover .bimg img{transform:scale(1.04)}
+.bbody{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bbody h3{font-family:var(--display);font-weight:400;font-size:1.45rem;margin:0}
+.bbody p{font-size:.92rem;color:var(--muted);margin:0}
+.bact{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:10px}
+@media (max-width:980px){.btrack{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.btrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -24px;padding:0 24px 6px;scrollbar-width:none}.btrack::-webkit-scrollbar{display:none}.btile{flex:0 0 84%;scroll-snap-align:center}}
 .case .clogo{display:block;width:160px;height:auto;border-radius:8px;margin:0 0 16px}
 .case h2{font-size:clamp(2.4rem,5vw,4.2rem)}
 .case h2 i{font-weight:400}
@@ -346,6 +365,7 @@ img{height:auto}
   <div class="wrap">
     <a class="mono" href="#home" aria-label="Andrea Gómez Lozano, home">Andrea G. L.</a>
     <nav aria-label="Sections">
+      <a href="#built"><span class="en">Built with AI</span><span class="es">Hecho con IA</span></a>
       <a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a>
       <a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a>
       <a href="#education"><span class="en">Education</span><span class="es">Formación</span></a>
@@ -359,7 +379,7 @@ img{height:auto}
     </div>
   </div>
   <nav class="mnav" id="mnav" aria-label="Sections" hidden>
-    <a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a><a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a><a href="#education"><span class="en">Education</span><span class="es">Formación</span></a><a href="#credentials"><span class="en">Credentials</span><span class="es">Credenciales</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
+    <a href="#built"><span class="en">Built with AI</span><span class="es">Hecho con IA</span></a><a href="#work"><span class="en">Work</span><span class="es">Proyectos</span></a><a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a><a href="#education"><span class="en">Education</span><span class="es">Formación</span></a><a href="#credentials"><span class="en">Credentials</span><span class="es">Credenciales</span></a><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a>
   </nav>
 </header>
 
@@ -377,7 +397,7 @@ img{height:auto}
       </div>
       <div class="cta">
         <a class="btn solid" href="#work"><span class="en">See my work</span><span class="es">Ver proyectos</span></a>
-        <a class="btn ghost" href="#contact"><span class="en">Get in touch</span><span class="es">Contactar</span></a>
+        <a class="btn ghost" href="#built"><span class="en">Try what I've built</span><span class="es">Prueba lo que he construido</span></a>
         <a class="btn ghost" href="assets/docs/Andrea-Gomez-Lozano-CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
@@ -388,13 +408,62 @@ img{height:auto}
 </section>
 
 
+<!-- BUILT WITH AI -->
+<section id="built" class="built">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="en">Built with AI</span><span class="es">Construido con IA</span></p><span class="pearls" aria-hidden="true"></span>
+      <h2><span class="en">From idea to a <i>live product</i></span><span class="es">De la idea a un <i>producto real</i></span></h2>
+      <p><span class="en">I design and build working products with AI tools like Lovable: real webs you can click, not mockups. Try them.</span><span class="es">Diseño y construyo productos que funcionan con herramientas de IA como Lovable: webs reales que puedes usar, no maquetas. Pruébalas.</span></p>
+    </div>
+    <div class="btrack">
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl">carmengranada.lovable.app</span><span class="btool">Lovable</span></div>
+        <button type="button" class="bimg" data-open-case="carmen" aria-label="Open project"><img src="assets/img/carmen-web-2.jpg" alt="" loading="lazy" style="object-position:50% 0"></button>
+        <div class="bbody"><h3>Carmen Conecta</h3><p><span class="en">An intergenerational network for Granada 2031</span><span class="es">Una red intergeneracional para Granada 2031</span></p>
+          <div class="bact"><a class="btn small solid" href="https://carmengranada.lovable.app/" target="_blank" rel="noopener"><span class="en">Try it live</span><span class="es">Probar en vivo</span></a><button type="button" class="btn small ghost" data-open-case="carmen"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl">arilvitas-granada-pulse.lovable.app</span><span class="btool">Lovable</span></div>
+        <button type="button" class="bimg" data-open-case="arilvitas" aria-label="Open project"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"></button>
+        <div class="bbody"><h3>ARILVITAS</h3><p><span class="en">Culture without the crush, my 9.9 final project</span><span class="es">Cultura sin colapso, mi TFG de 9,9</span></p>
+          <div class="bact"><a class="btn small solid" href="https://arilvitas-granada-pulse.lovable.app/" target="_blank" rel="noopener"><span class="en">Try it live</span><span class="es">Probar en vivo</span></a><button type="button" class="btn small ghost" data-open-case="arilvitas"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl">eljardindeaura.shop</span><span class="btool">Lovable</span></div>
+        <button type="button" class="bimg fit" data-open-case="jardin" aria-label="Open project"><img src="assets/img/jardin-logo.jpg" alt="" loading="lazy"></button>
+        <div class="bbody"><h3>El Jardín de Aura</h3><p><span class="en">A complete online shop for handmade flowers</span><span class="es">Una tienda online completa de flores hechas a mano</span></p>
+          <div class="bact"><a class="btn small solid" href="https://eljardindeaura.shop/" target="_blank" rel="noopener"><span class="en">Try it live</span><span class="es">Probar en vivo</span></a><button type="button" class="btn small ghost" data-open-case="jardin"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl">starthackthesisgpsstudyond.vercel.app</span><span class="btool"><span class="en">AI</span><span class="es">IA</span></span></div>
+        <button type="button" class="bimg dark" data-open-case="gps" aria-label="Open project"><img src="assets/img/gps-1.jpg" alt="" loading="lazy"></button>
+        <div class="bbody"><h3>Thesis GPS</h3><p><span class="en">An AI thesis navigator, built at START Hack</span><span class="es">Un navegador de tesis con IA, hecho en START Hack</span></p>
+          <div class="bact"><a class="btn small solid" href="https://starthackthesisgpsstudyond.vercel.app" target="_blank" rel="noopener"><span class="en">Try it live</span><span class="es">Probar en vivo</span></a><button type="button" class="btn small ghost" data-open-case="gps"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl"><span class="en">Demo inside the project</span><span class="es">Demo dentro del proyecto</span></span><span class="btool"><span class="en">AI</span><span class="es">IA</span></span></div>
+        <button type="button" class="bimg" data-open-case="lapalma" aria-label="Open project"><img src="assets/img/lapalma-world.jpg" alt="" loading="lazy"></button>
+        <div class="bbody"><h3>Cultiva tu Legado</h3><p><span class="en">The gamified platform behind La Palma's pack</span><span class="es">La plataforma gamificada del envase de La Palma</span></p>
+          <div class="bact"><button type="button" class="btn small ghost" data-open-case="lapalma"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+      <article class="btile">
+        <div class="bbar"><span class="bdot" aria-hidden="true"></span><span class="burl"><span class="en">Demo inside the project</span><span class="es">Demo dentro del proyecto</span></span><span class="btool">Lovable</span></div>
+        <button type="button" class="bimg fit" data-open-case="recursos" aria-label="Open project"><img src="assets/img/ugr-emprendedora.png" alt="" loading="lazy"></button>
+        <div class="bbody"><h3><span class="en">Resource bank</span><span class="es">Banco de recursos</span></h3><p><span class="en">A resource bank for founders, built on my own</span><span class="es">Un banco de recursos para emprender, hecho por mi cuenta</span></p>
+          <div class="bact"><button type="button" class="btn small ghost" data-open-case="recursos"><span class="en">See the project</span><span class="es">Ver el proyecto</span></button></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- WORK INDEX -->
 <section id="work" style="padding-top:40px">
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker"><span class="en">Selected work</span><span class="es">Proyectos</span></p><span class="pearls" aria-hidden="true"></span>
       <h2><span class="en">Things I've built, led and sold</span><span class="es">Lo que he construido, liderado y vendido</span></h2>
-      <p><span class="en">What I built, what I led and what I achieved. Open any project to see all its photos, documents and links.</span><span class="es">Lo que he construido, liderado y conseguido. Abre cualquier proyecto para ver todas sus fotos, documentos y enlaces.</span></p>
+      <p><span class="en">Open any project to see all its photos, documents and links, or filter by what you're looking for.</span><span class="es">Abre cualquier proyecto para ver todas sus fotos, documentos y enlaces, o filtra por lo que buscas.</span></p>
     </div>
     <div class="filters" role="group" aria-label="Filter work">
       <span class="lab"><span class="en">Show me:</span><span class="es">Enséñame:</span></span>
@@ -407,51 +476,69 @@ img{height:auto}
     </div>
 
     <div class="grid" id="index">
-      <button type="button" class="row card" style="--s:7;--h:520px" data-case="lapalma" data-tags="builder strategy program">
-        <span class="cimg fit"><img src="assets/img/lapalma-pack.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Most innovative idea</span><span class="es">Idea más innovadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">La Píldora Roja, <span class="en">University of Granada</span><span class="es">Universidad de Granada</span></span><span class="ctitle">La Palma: <i>Cultiva tu Legado</i></span><span class="cdid"><span class="en">A plantable pack for cherry tomatoes and the gamified platform behind its QR code.</span><span class="es">Un envase plantable para tomates cherry y la plataforma gamificada de su QR.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag"><span class="en">Sustainability</span><span class="es">Sostenibilidad</span></span></span></span>
+      <button type="button" class="row card" style="--s:7;--h:520px" data-case="ie" data-tags="program">
+        <span class="cimg "><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"><span class="badge">90 <span class="en">of</span><span class="es">de</span> 105,000+</span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">One of 90 selected from 105,000+. With a team from six countries we created Agus, a money app for first paychecks.</span><span class="es">Una de las 90 seleccionadas entre más de 105.000. Con un equipo de seis países creamos Agus, una app de finanzas para el primer sueldo.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span><span class="tag"><span class="en">International team</span><span class="es">Equipo internacional</span></span></span></span>
       </button>
       <button type="button" class="row card" style="--s:5;--h:520px" data-case="carmen" data-tags="strategy communication program">
         <span class="cimg "><img src="assets/img/mic.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Winner</span><span class="es">Ganadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx"><span class="en">Red Emprende, Junta de Andalucía</span><span class="es">Red Emprende, Junta de Andalucía</span></span><span class="ctitle">Carmen Conecta <i>2031</i></span><span class="cdid"><span class="en">An intergenerational network for Granada 2031, created with vocational training students. I pitched it to the jury and we won.</span><span class="es">Una red intergeneracional para Granada 2031, creada con estudiantes de FP. La presenté ante el jurado y ganamos.</span></span><span class="ctags"><span class="tag"><span class="en">Pitch</span><span class="es">Pitch</span></span><span class="tag"><span class="en">Social impact</span><span class="es">Impacto social</span></span></span></span>
       </button>
+      <button type="button" class="row card" style="--s:7;--h:480px" data-case="lapalma" data-tags="builder strategy program">
+        <span class="cimg fit"><img src="assets/img/lapalma-pack.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Most innovative idea</span><span class="es">Idea más innovadora</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">La Píldora Roja, <span class="en">University of Granada</span><span class="es">Universidad de Granada</span></span><span class="ctitle">La Palma: <i>Cultiva tu Legado</i></span><span class="cdid"><span class="en">A plantable pack for cherry tomatoes and the gamified platform behind its QR code.</span><span class="es">Un envase plantable para tomates cherry y la plataforma gamificada de su QR.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag"><span class="en">Sustainability</span><span class="es">Sostenibilidad</span></span></span></span>
+      </button>
       <button type="button" class="row card" style="--s:5;--h:480px" data-case="gps" data-tags="builder program">
         <span class="cimg "><img src="assets/img/starthack.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx">START Hack 2026, St. Gallen</span><span class="ctitle">Thesis <i>GPS</i></span><span class="cdid"><span class="en">An AI thesis navigator, built with an international team at one of Europe's best-known student hackathons.</span><span class="es">Un navegador de tesis con IA, construido con un equipo internacional en uno de los hackathons universitarios más reconocidos de Europa.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Hackathon</span></span></span>
       </button>
-      <button type="button" class="row card" style="--s:7;--h:480px" data-case="arilvitas" data-tags="strategy communication">
+      <button type="button" class="row card" style="--s:4;--h:420px" data-case="arilvitas" data-tags="strategy communication">
         <span class="cimg dark"><img src="assets/img/arilvitas.jpg" alt="" loading="lazy"><span class="badge"><span class="en">Graded 9.9 / 10</span><span class="es">Nota: 9,9 / 10</span></span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx"><span class="en">Interdisciplinary entrepreneurship TFG</span><span class="es">TFG emprendedor interdisciplinar</span></span><span class="ctitle">ARILVITAS</span><span class="cdid"><span class="en">“Cultura sin colapso”: a web to enjoy Granada without overwhelming it.</span><span class="es">“Cultura sin colapso”: una web para disfrutar Granada sin colapsarla.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag"><span class="en">Tourism</span><span class="es">Turismo</span></span></span></span>
       </button>
-      <button type="button" class="row card" style="--s:4;--h:400px" data-case="granate" data-tags="strategy program">
-        <span class="cimg "><img src="assets/img/bootcamp-five.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">Bootcamp UNIVERGEM</span><span class="ctitle"><i>Gran</i>ATE</span><span class="cdid"><span class="en">A B2B platform that turns food surplus into income, designed in four days with students from Maths, Computer Engineering and Business.</span><span class="es">Una plataforma B2B que convierte excedentes en ingresos, diseñada en cuatro días con estudiantes de Matemáticas, Informática y ADE.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag">B2B</span></span></span>
-      </button>
-      <button type="button" class="row card" style="--s:4;--h:400px" data-case="alho" data-tags="strategy communication">
-        <span class="cimg "><img src="assets/img/alho-stand.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">Treze Market, Cabo de Gata</span><span class="ctitle">ALHO</span><span class="cdid"><span class="en">Sales and strategy at a seaside summer market full of tourists: an Instagram roulette and a branded mirror.</span><span class="es">Ventas y estrategia en un mercado de verano junto al mar lleno de turistas: ruleta de Instagram y espejo de marca.</span></span><span class="ctags"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span></span>
-      </button>
-      <button type="button" class="row card" style="--s:4;--h:400px" data-case="jardin" data-tags="builder communication">
+      <button type="button" class="row card" style="--s:4;--h:420px" data-case="jardin" data-tags="builder communication">
         <span class="cimg fit"><img src="assets/img/jardin-logo.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx"><span class="en">Online shop, Almería</span><span class="es">Tienda online, Almería</span></span><span class="ctitle">El Jardín <i>de Aura</i></span><span class="cdid"><span class="en">I designed and built the online shop for a handmade flower brand.</span><span class="es">Diseñé y construí la tienda online de una marca de flores hechas a mano.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">E-commerce</span></span></span>
       </button>
-      <button type="button" class="row card" style="--s:6;--h:420px" data-case="halloween" data-tags="leadership communication">
-        <span class="cimg "><img src="assets/img/halloween-group.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">UGR Emprendedora x Breaker</span><span class="ctitle">Resucita <i>la startup</i></span><span class="cdid"><span class="en">I organised and led a Halloween workshop on what Tuenti, Blockbuster and Club Penguin teach us about failure.</span><span class="es">Organicé y guié un taller de Halloween sobre lo que Tuenti, Blockbuster y Club Penguin enseñan del fracaso.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Events</span><span class="es">Eventos</span></span></span></span>
-      </button>
-      <button type="button" class="row card" style="--s:6;--h:420px" data-case="ideas" data-tags="leadership">
-        <span class="cimg "><img src="assets/img/ideas-close.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">UGR Emprendedora, 2026</span><span class="ctitle"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span><span class="cdid"><span class="en">I mentored teams on idea validation, financial planning and creativity in a 48-hour hackathon.</span><span class="es">Acompañé a equipos en validación de la idea, plan económico-financiero y creatividad en un hackathon de 48 horas.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span></span>
-      </button>
-      <button type="button" class="row card" style="--s:5;--h:420px" data-case="recursos" data-tags="builder">
+      <button type="button" class="row card" style="--s:4;--h:420px" data-case="recursos" data-tags="builder">
         <span class="cimg fit"><img src="assets/img/ugr-emprendedora.png" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
         <span class="cbody"><span class="cctx">UGR Emprendedora</span><span class="ctitle"><span class="en">Resource <i>bank</i></span><span class="es">Banco de <i>recursos</i></span></span><span class="cdid"><span class="en">A web app for founders that I built on my own with Lovable.</span><span class="es">Una app web para emprender que construí por mi cuenta con Lovable.</span></span><span class="ctags"><span class="tag"><span class="en">AI builder</span><span class="es">Construir con IA</span></span><span class="tag">Lovable</span></span></span>
       </button>
-      <button type="button" class="row card" style="--s:7;--h:420px" data-case="ie" data-tags="program">
-        <span class="cimg "><img src="assets/img/ie-stage.jpg" alt="" loading="lazy"><span class="badge">90 <span class="en">of</span><span class="es">de</span> 105,000+</span><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
-        <span class="cbody"><span class="cctx">IE University x Banco Santander</span><span class="ctitle">Innovation &amp; <i>AI Experience</i></span><span class="cdid"><span class="en">One of 90 selected from 105,000+. With a team from six countries we created Agus, a money app for first paychecks.</span><span class="es">Una de las 90 seleccionadas entre más de 105.000. Con un equipo de seis países creamos Agus, una app de finanzas para el primer sueldo.</span></span><span class="ctags"><span class="tag"><span class="en">Selected</span><span class="es">Seleccionada</span></span><span class="tag"><span class="en">International team</span><span class="es">Equipo internacional</span></span></span></span>
+      <button type="button" class="row card" style="--s:6;--h:420px" data-case="granate" data-tags="strategy program">
+        <span class="cimg "><img src="assets/img/bootcamp-five.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">Bootcamp UNIVERGEM</span><span class="ctitle"><i>Gran</i>ATE</span><span class="cdid"><span class="en">A B2B platform that turns food surplus into income, designed in four days with students from Maths, Computer Engineering and Business.</span><span class="es">Una plataforma B2B que convierte excedentes en ingresos, diseñada en cuatro días con estudiantes de Matemáticas, Informática y ADE.</span></span><span class="ctags"><span class="tag"><span class="en">Strategy</span><span class="es">Estrategia</span></span><span class="tag">B2B</span></span></span>
+      </button>
+      <button type="button" class="row card" style="--s:6;--h:420px" data-case="alho" data-tags="strategy communication">
+        <span class="cimg "><img src="assets/img/alho-stand.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">Treze Market, Cabo de Gata</span><span class="ctitle">ALHO</span><span class="cdid"><span class="en">Sales and strategy at a seaside summer market full of tourists: an Instagram roulette and a branded mirror.</span><span class="es">Ventas y estrategia en un mercado de verano junto al mar lleno de turistas: ruleta de Instagram y espejo de marca.</span></span><span class="ctags"><span class="tag"><span class="en">Sales</span><span class="es">Ventas</span></span><span class="tag">Marketing</span></span></span>
+      </button>
+      <button type="button" class="row card" style="--s:6;--h:400px" data-case="halloween" data-tags="leadership communication">
+        <span class="cimg "><img src="assets/img/halloween-group.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora x Breaker</span><span class="ctitle">Resucita <i>la startup</i></span><span class="cdid"><span class="en">I organised and led a Halloween workshop on what Tuenti, Blockbuster and Club Penguin teach us about failure.</span><span class="es">Organicé y guié un taller de Halloween sobre lo que Tuenti, Blockbuster y Club Penguin enseñan del fracaso.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Events</span><span class="es">Eventos</span></span></span></span>
+      </button>
+      <button type="button" class="row card" style="--s:6;--h:400px" data-case="ideas" data-tags="leadership">
+        <span class="cimg "><img src="assets/img/ideas-close.jpg" alt="" loading="lazy"><span class="copen"><span class="en">Open project</span><span class="es">Ver proyecto</span></span></span>
+        <span class="cbody"><span class="cctx">UGR Emprendedora, 2026</span><span class="ctitle"><span class="en">Mentor at <i>Ideas Factory</i></span><span class="es">Mentora en <i>Ideas Factory</i></span></span><span class="cdid"><span class="en">I mentored teams on idea validation, financial planning and creativity in a 48-hour hackathon.</span><span class="es">Acompañé a equipos en validación de la idea, plan económico-financiero y creatividad en un hackathon de 48 horas.</span></span><span class="ctags"><span class="tag"><span class="en">Leadership</span><span class="es">Liderazgo</span></span><span class="tag"><span class="en">Mentoring</span><span class="es">Mentoría</span></span></span></span>
       </button>
     </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <figure class="quote">
+      <p class="kicker" style="color:var(--rose);margin-bottom:22px"><span class="en">What people say</span><span class="es">Lo que dicen de mí</span></p>
+      <blockquote><span class="en">“In my ten years in entrepreneurship, Andrea is one of the most outstanding people I've had the privilege to work with.”</span><span class="es">“Andrea Gómez es, en mis diez años de experiencia en emprendimiento, una de las personas más sobresalientes con las que he tenido el privilegio de trabajar.”</span></blockquote>
+      <div class="more">
+        <p><span class="en">“Her natural, horizontal leadership got the other interns working together, laughing and keeping up the motivation.”</span><span class="es">“Su liderazgo natural y horizontal ha logrado que las demás personas becarias colaboren, participen, se rían y mantengan la motivación.”</span></p>
+        <p><span class="en">“A versatile professional with a rare profile that brings together technical skill, a feel for communication and an entrepreneurial spirit.”</span><span class="es">“Una profesional versátil, con un perfil poco común que aúna competencia técnica, sensibilidad comunicativa y espíritu emprendedor.”</span></p>
+      </div>
+      <figcaption class="who">
+        <div><b>Ana Isabel Rodríguez</b><br><span><span class="en">Internship Lead and Entrepreneurship Specialist, UGR Emprendedora. Translated from Spanish.</span><span class="es">Responsable de Prácticas y Técnica de Emprendimiento, UGR Emprendedora</span></span></div>
+        <button type="button" class="btn small" data-doc="doc-letter"><span class="en">Read the full letter</span><span class="es">Leer la carta completa</span></button>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -520,7 +607,7 @@ img{height:auto}
         <p class="yr"><span class="en">Sep 2021 to Jun 2026</span><span class="es">sep 2021 a jun 2026</span></p>
         <h3><span class="en">Double Degree in Law and Business Administration</span><span class="es">Doble Grado en Derecho y Administración y Dirección de Empresas</span></h3>
         <p><span class="en">University of Granada. A legal and business background with an international outlook and a focus on economic and business analysis.</span><span class="es">Universidad de Granada. Formación jurídica y empresarial, con proyección internacional y orientación al análisis económico-empresarial.</span></p>
-        <p class="ghead"><span class="en">From my transcript: 2 Honours (Matrícula de Honor) and 10 grades of Outstanding (9 or above)</span><span class="es">De mi expediente: 2 Matrículas de Honor y 10 sobresalientes</span></p>
+        <p class="ghead"><span class="en">Highlights</span><span class="es">Destacados</span></p>
         <ul class="grades">
           <li><b><span class="en">9.9</span><span class="es">9,9</span></b><span><span class="en">Final degree project (ARILVITAS)</span><span class="es">Trabajo Fin de Grado (ARILVITAS)</span></span></li>
           <li><b>MH</b><span><span class="en">Honours (Matrícula de Honor) in Strategic Management II</span><span class="es">Matrícula de Honor en Dirección Estratégica de la Empresa II</span></span></li>
@@ -540,29 +627,16 @@ img{height:auto}
         <p class="yr"><span class="en">Sep 2023 to May 2024</span><span class="es">sep 2023 a may 2024</span></p>
         <h3><span class="en">Erasmus Programme</span><span class="es">Programa Erasmus</span></h3>
         <p><span class="en">Law and Business Administration and Management at the University of Galway (NUIG), Ireland.</span><span class="es">Derecho y Administración y Dirección de Empresas en la University of Galway (NUIG), Irlanda.</span></p>
+        <p class="ghead"><span class="en">Highlights</span><span class="es">Destacados</span></p>
         <ul class="grades">
           <li><b>10</b><span><span class="en">Quantitative Methods</span><span class="es">Métodos Cuantitativos</span></span></li>
+          <li><b><span class="en">8.8</span><span class="es">8,8</span></b><span><span class="en">Administrative Law II</span><span class="es">Derecho Administrativo II</span></span></li>
+          <li><b><span class="en">8.5</span><span class="es">8,5</span></b><span><span class="en">EU Institutions and Law</span><span class="es">Instituciones y Derecho de la Unión Europea</span></span></li>
+          <li><b><span class="en">8.3</span><span class="es">8,3</span></b><span><span class="en">Public International Law</span><span class="es">Derecho Internacional Público</span></span></li>
+          <li><b><span class="en">8.3</span><span class="es">8,3</span></b><span><span class="en">Criminal Law II</span><span class="es">Derecho Penal II</span></span></li>
         </ul>
       </article>
     </div>
-  </div>
-</section>
-
-<!-- QUOTE -->
-<section style="padding-top:20px">
-  <div class="wrap">
-    <figure class="quote">
-      <p class="kicker" style="color:var(--rose);margin-bottom:22px"><span class="en">What people say</span><span class="es">Lo que dicen de mí</span></p>
-      <blockquote><span class="en">“In my ten years in entrepreneurship, Andrea is one of the most outstanding people I've had the privilege to work with.”</span><span class="es">“Andrea Gómez es, en mis diez años de experiencia en emprendimiento, una de las personas más sobresalientes con las que he tenido el privilegio de trabajar.”</span></blockquote>
-      <div class="more">
-        <p><span class="en">“Her natural, horizontal leadership got the other interns working together, laughing and keeping up the motivation.”</span><span class="es">“Su liderazgo natural y horizontal ha logrado que las demás personas becarias colaboren, participen, se rían y mantengan la motivación.”</span></p>
-        <p><span class="en">“A versatile professional with a rare profile that brings together technical skill, a feel for communication and an entrepreneurial spirit.”</span><span class="es">“Una profesional versátil, con un perfil poco común que aúna competencia técnica, sensibilidad comunicativa y espíritu emprendedor.”</span></p>
-      </div>
-      <figcaption class="who">
-        <div><b>Ana Isabel Rodríguez</b><br><span><span class="en">Internship Lead and Entrepreneurship Specialist, UGR Emprendedora. Translated from Spanish.</span><span class="es">Responsable de Prácticas y Técnica de Emprendimiento, UGR Emprendedora</span></span></div>
-        <button type="button" class="btn small" data-doc="doc-letter"><span class="en">Read the full letter</span><span class="es">Leer la carta completa</span></button>
-      </figcaption>
-    </figure>
   </div>
 </section>
 
@@ -1058,6 +1132,7 @@ img{height:auto}
   $('#cprev').addEventListener('click', function(){ step(-1); });
   $('#cnext').addEventListener('click', function(){ step(1); });
   function fromHash(){ var h = location.hash.replace('#', ''); if(order.indexOf(h) > -1) showCase(h, false); else if(cases.classList.contains('on')) closeCase(true); }
+  $$('[data-open-case]').forEach(function(b){ b.addEventListener('click', function(e){ var id = b.dataset.openCase, row = $('.row[data-case="' + id + '"]'); if(row) row.dispatchEvent(new MouseEvent('click', {bubbles:true, clientX:e.clientX, clientY:e.clientY})); }); });
   window.addEventListener('popstate', fromHash); window.addEventListener('hashchange', fromHash); fromHash();
 
   /* experience rail */
