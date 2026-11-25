@@ -140,7 +140,10 @@ header.top.scrolled{border-bottom-color:var(--line)}
 .grades b{flex:0 0 56px;width:56px;box-sizing:border-box;text-align:center;font-family:var(--display);font-size:1.05rem;color:var(--cherry);background:var(--blush);border-radius:999px;padding:3px 10px}
 .grades small{font-size:.8rem;color:var(--muted)}
 .ecard .ghead{margin-top:18px;font-size:.82rem;color:var(--muted)}
-.ccard.ak img{width:100%;height:auto;border-radius:10px;margin-bottom:14px;display:block}
+.cthumb{width:100%;aspect-ratio:800/515;height:auto;object-fit:cover;object-position:50% 0;border-radius:10px;display:block;margin-bottom:8px;border:1px solid var(--line);background:#fff;box-sizing:border-box}
+.cam-top .cthumb-btn{flex:0 0 190px;padding:0;border:0;background:none;cursor:zoom-in;align-self:flex-start}
+.cam-top .cthumb-btn .cthumb{margin:0}
+.cam-top .cam-id{flex:1;min-width:180px}
 .track figure.vid video{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
 .vol{padding:80px 0}
 .vol .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
@@ -651,7 +654,8 @@ img{height:auto}
     <div class="cred">
       <article class="ccard cam">
         <div class="cam-top">
-          <div><p class="iss">Cambridge English, <span class="en">Sep 2024</span><span class="es">sep 2024</span></p><h3>C1 Advanced, <span class="en">Grade B</span><span class="es">nota B</span></h3></div>
+          <button type="button" class="cthumb-btn" data-lb="assets/img/cert-cambridge.jpg" aria-label="View certificate"><img class="cthumb" src="assets/img/th-cambridge.jpg" alt="Cambridge C1 Advanced certificate" width="800" height="515" loading="lazy"></button>
+          <div class="cam-id"><p class="iss">Cambridge English, <span class="en">Sep 2024</span><span class="es">sep 2024</span></p><h3>C1 Advanced, <span class="en">Grade B</span><span class="es">nota B</span></h3></div>
           <div style="text-align:right"><p class="score" data-count="199">199</p><button type="button" class="btn small ghost" data-lb="assets/img/cert-cambridge.jpg" style="margin-top:10px"><span class="en">View certificate</span><span class="es">Ver certificado</span></button></div>
         </div>
         <div class="bars" id="bars">
@@ -664,28 +668,32 @@ img{height:auto}
         <p class="c2lab"><span class="en">In red: 200 or more, which Cambridge places at C2 level. Scale from 160 to 210.</span><span class="es">En rojo: 200 o más, que Cambridge sitúa en nivel C2. Escala de 160 a 210.</span></p>
       </article>
       <article class="ccard ak">
-        <img src="assets/img/akademia.jpg" alt="Akademia Future Builders, Fundación Innovación Bankinter" width="800" height="515" loading="lazy">
+        <img class="cthumb" src="assets/img/akademia.jpg" alt="Akademia Future Builders, Fundación Innovación Bankinter" width="800" height="515" loading="lazy">
         <span class="iss">Fundación Innovación Bankinter, 2026</span>
         <h3>Akademia Future Builders</h3>
         <span style="font-size:.9rem;color:var(--muted)"><span class="en">Selected after an application and a personal interview for this fully funded programme on the changes reshaping society, from AI to energy and synthetic biology, with live sessions led by experts and innovative companies.</span><span class="es">Seleccionada tras candidatura y entrevista personal para este programa becado sobre las transformaciones que están cambiando la sociedad, de la IA a la energía o la biología sintética, con sesiones en directo con expertos y empresas innovadoras.</span></span>
       </article>
       <button type="button" class="ccard" data-lb="assets/img/cert-claude.jpg">
+        <img class="cthumb" src="assets/img/th-claude.jpg" alt="Claude Code in Action certificate" width="800" height="515" loading="lazy">
         <span class="iss">Anthropic Academy, <span class="en">Mar 2026</span><span class="es">mar 2026</span></span>
         <h3>Claude Code in Action</h3>
         <span class="open"><span class="en">View certificate</span><span class="es">Ver certificado</span></span>
       </button>
       <button type="button" class="ccard" data-lb="assets/img/cert-santander.jpg">
+        <img class="cthumb" src="assets/img/th-santander.jpg" alt="Santander X Explorer certificate" width="800" height="515" loading="lazy">
         <span class="iss">Banco Santander, <span class="en">Nov 2025</span><span class="es">nov 2025</span></span>
         <h3>Santander X Explorer</h3>
         <span style="font-size:.9rem;color:var(--muted)"><span class="en">Pre-incubation program, 96+ hours over 12 weeks</span><span class="es">Preincubación, más de 96 horas en 12 semanas</span></span>
         <span class="open"><span class="en">View certificate</span><span class="es">Ver certificado</span></span>
       </button>
       <button type="button" class="ccard" data-lb="assets/img/cert-ibm.jpg">
+        <img class="cthumb" src="assets/img/th-ibm.jpg" alt="IBM SkillsBuild certificate" width="800" height="515" loading="lazy">
         <span class="iss">IBM SkillsBuild, <span class="en">Sep 2025</span><span class="es">sep 2025</span></span>
         <h3>Building Trustworthy AI Enterprise Solutions</h3>
         <span class="open"><span class="en">View certificate</span><span class="es">Ver certificado</span></span>
       </button>
       <button type="button" class="ccard" data-lb="assets/img/cert-bootcamp.jpg">
+        <img class="cthumb" src="assets/img/th-bootcamp.jpg" alt="UNIVERGEM bootcamp certificate" width="800" height="515" loading="lazy">
         <span class="iss">Universidad de Granada, <span class="en">Jan 2026</span><span class="es">ene 2026</span></span>
         <h3><span class="en">UNIVERGEM: Women Entrepreneurs with AI</span><span class="es">UNIVERGEM: Emprendedoras con IA</span></h3>
         <span class="open"><span class="en">View certificate</span><span class="es">Ver certificado</span></span>
